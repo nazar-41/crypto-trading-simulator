@@ -4,7 +4,7 @@
 //
 //  Created by Belli's MacBook on 24/09/2022.
 //
-
+//test
 import SwiftUI
 
 struct CoinRowView: View {
