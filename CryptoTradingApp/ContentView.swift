@@ -9,18 +9,42 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView{
+
+            tabItemView(view: HomeView(), label: "Portfolio", icon: "cart.fill")
+            
+            tabItemView(view: Text("Trade"), label: "Trade", icon: "bitcoinsign")
+            
+            tabItemView(view: MarketView(), label: "Market", icon: "chart.line.uptrend.xyaxis")
+            
+            tabItemView(view: Text("Exchanges"), label: "Exchanges", icon: "e.circle.fill")
+
+            tabItemView(view: Text("News"), label: "News", icon: "newspaper")
+            
+            tabItemView(view: Text("Profile"), label: "Profile", icon: "person")
+            
+            tabItemView(view: CreatorView(), label: "Creator", icon: "applelogo")
+            
+
+        
         }
-        .padding()
+        .accentColor(.orange)
+
+
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+extension ContentView{
+    @ViewBuilder private func tabItemView(view: some View, label: String, icon: String)-> some View{
+        view
+            .tabItem {
+                Label(label, systemImage: icon)
+            }
     }
 }

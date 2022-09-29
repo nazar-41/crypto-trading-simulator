@@ -8,47 +8,23 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject private var vm_homeview: VM_HomeView
+    
     
     var body: some View {
-        ScrollView{
-            
+        
+        ScrollView(showsIndicators: false) {
             VStack{
                 
                 headerCardView
                 
-                    HStack(spacing: 2){
-                        
-                        Text("Crypto")
-                            .padding(.leading)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                            .background(.yellow)
-                        
-                        Text("Holdings")
-                            .padding(.leading)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                            .background(.yellow)
-                        
-                        Text("Total Profit / Avg Cost")
-                            .frame(maxWidth: UIScreen.main.bounds.width / 3, maxHeight: .infinity)
-                            .background(.yellow)
- 
-    
-                        
-                    }
-                    .frame(height: 50, alignment: .center)
-                    .foregroundColor(.white)
-                    .font(.headline)
+                listTitleView
                 
-                coinListView(model: [DeveloperPreview.instance.coin, DeveloperPreview.instance.coin, DeveloperPreview.instance.coin, DeveloperPreview.instance.coin,])
-                    .border(.red)
-                    .frame(height: UIScreen.main.bounds.height * 0.7)
-                    
+                coinListView
+                
             }
-            //.listStyle(.plain)
-            
+            .padding(.horizontal, 10)
         }
-        
-        
     }
 }
 
@@ -96,42 +72,85 @@ extension HomeView{
                     
                 }
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
             
         }
         .frame(height: 150)
-        .padding()
+    }
+    
+    //MARK: List header view
+    @ViewBuilder private var listTitleView:  some View{
+        HStack(spacing: 2){
+            
+            Text("Crypto")
+                .padding(.leading, 10)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+            
+            //Text("Holdings")
+            Label("Holdings", systemImage: "arrowtriangle.down.fill")
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            
+            HStack {
+                Text("Price")
+
+                Button {
+                    vm_homeview.addSubscribers()
+                    print("data refreshed")
+                } label: {
+                    Image(systemName: "arrow.clockwise")
+                }
+
+            }
+            .padding(.trailing, 10)
+            .frame(maxWidth: UIScreen.main.bounds.width / 3, maxHeight: .infinity, alignment: .trailing)
+
+
+            
+        }
+        .frame(height: 30, alignment: .center)
+        .foregroundColor(.black)
+        .font(.caption)
     }
     
     //MARK: Coin row
     @ViewBuilder private func coinRowView(coin: CoinModel, showHoldinsColumn: Bool)-> some View{
-        VStack{
-            CoinRowView(coin: coin, showHoldingsColumn: showHoldinsColumn)
-            Divider()
+            NavigationLink {
+                Text(coin.name)
+            } label: {
+                VStack{
+                    HStack {
+                        CoinRowView(coin: coin, showHoldingsColumn: showHoldinsColumn)
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 11, weight: .bold))
+                    }
+                    .padding(.vertical, 4)
+
+                    Divider()
+                }
+                .padding(.trailing, 5)
+            }
         }
-        .padding(.horizontal, 10)
-        .padding(.trailing, 5)
-        .padding(.vertical, 4)
-    }
-    
-    @ViewBuilder private func coinListView(model: [CoinModel])-> some View{
+
+    //MARK: Coin list view
+    @ViewBuilder private var coinListView: some View{
         ScrollView{
             VStack{
-                ForEach(model){coin in
+                ForEach(vm_homeview.portfolioCoins){coin in
                     //CoinRowView(coin: coin, showHoldingsColumn: false)
                     coinRowView(coin: coin, showHoldinsColumn: true)
                 }
             }
         }
+        .frame(height: UIScreen.main.bounds.height * 0.7)
     }
-    
 }
 
 
 struct HomeVIew_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(dev.vm_homeview)
+            .accentColor(.orange)
     }
 }
 

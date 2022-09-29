@@ -4,7 +4,7 @@
 //
 //  Created by Belli's MacBook on 24/09/2022.
 //
-//test
+
 import SwiftUI
 
 struct CoinRowView: View {
@@ -80,6 +80,7 @@ extension CoinRowView {
             
             HStack(spacing: 2){
                 Image(systemName: (coin.priceChangePercentage24H ?? 0 >= 0) ? "arrowtriangle.up.fill" : "arrowtriangle.down.fill")
+                    .renderingMode(.original)
                     .foregroundColor((coin.priceChangePercentage24H ?? 0 >= 0) ? .green : .red)
                     .font(.system(size: 13, weight: .regular))
                 
