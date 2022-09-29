@@ -20,8 +20,12 @@ struct HomeView: View {
                 
                 listTitleView
                 
-                coinListView
-                
+                if vm_homeview.portfolioCoins.isEmpty{
+                    noHoldingsView
+                }else{
+                    coinListView
+                }
+
             }
             .padding(.horizontal, 10)
         }
@@ -142,6 +146,22 @@ extension HomeView{
             }
         }
         .frame(height: UIScreen.main.bounds.height * 0.7)
+    }
+    
+    //MARK: No holdings view
+    @ViewBuilder private var noHoldingsView: some View{
+        VStack{
+            Image(systemName: "bonjour")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100)
+                .foregroundColor(.orange)
+            
+            Text("No holdings")
+                .font(.headline)
+                .padding(.top)
+        }
+        .padding(.top, 100)
     }
 }
 
