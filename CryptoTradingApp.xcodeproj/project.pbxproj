@@ -23,6 +23,7 @@
 		A8750E8328E1CBBE00B02C1C /* VM_HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8750E8228E1CBBE00B02C1C /* VM_HomeView.swift */; };
 		A8C536B928E84FD1003425E2 /* Coin360View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C536B828E84FD1003425E2 /* Coin360View.swift */; };
 		A8C536BB28E8503C003425E2 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C536BA28E8503C003425E2 /* WebView.swift */; };
+		A8C536BD28E85C0F003425E2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C536BC28E85C0F003425E2 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		A8750E8228E1CBBE00B02C1C /* VM_HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_HomeView.swift; sourceTree = "<group>"; };
 		A8C536B828E84FD1003425E2 /* Coin360View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin360View.swift; sourceTree = "<group>"; };
 		A8C536BA28E8503C003425E2 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebView.swift; path = CryptoTradingApp/Core/Coin360/WebView.swift; sourceTree = SOURCE_ROOT; };
+		A8C536BC28E85C0F003425E2 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = API.swift; path = CryptoTradingApp/Core/Coin360/API.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				A8C536BA28E8503C003425E2 /* WebView.swift */,
+				A8C536BC28E85C0F003425E2 /* API.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				A85BC59328DF2358007E5130 /* PreviewProvider.swift in Sources */,
 				A848284428E5B7C200405907 /* CreatorView.swift in Sources */,
 				A8750E8328E1CBBE00B02C1C /* VM_HomeView.swift in Sources */,
+				A8C536BD28E85C0F003425E2 /* API.swift in Sources */,
 				A85BC59028DF2322007E5130 /* CoinRowView.swift in Sources */,
 				A8C536BB28E8503C003425E2 /* WebView.swift in Sources */,
 				A8C536B928E84FD1003425E2 /* Coin360View.swift in Sources */,
