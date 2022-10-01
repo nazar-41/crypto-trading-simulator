@@ -13,11 +13,14 @@ struct ContentView: View {
 
             tabItemView(view: HomeView(), label: "Portfolio", icon: "cart.fill")
             
-            tabItemView(view: Text("Trade"), label: "Trade", icon: "bitcoinsign")
-            
             tabItemView(view: MarketView(), label: "Market", icon: "chart.line.uptrend.xyaxis")
             
+            tabItemView(view: Text("Trade"), label: "Trade", icon: "bitcoinsign")
+                        
             tabItemView(view: Text("Exchanges"), label: "Exchanges", icon: "e.circle.fill")
+            
+            tabItemView(view: Coin360View(), label: "coin360", icon: "globe")
+
 
             tabItemView(view: Text("News"), label: "News", icon: "newspaper")
             

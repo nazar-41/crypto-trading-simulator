@@ -19,7 +19,10 @@
 		A85BC59328DF2358007E5130 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85BC59228DF2358007E5130 /* PreviewProvider.swift */; };
 		A85BC59A28DF2A49007E5130 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85BC59928DF2A49007E5130 /* Double.swift */; };
 		A85BC59C28DF2E73007E5130 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85BC59B28DF2E73007E5130 /* HomeView.swift */; };
+		A872103828E7066A00282FFE /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A872103728E7066A00282FFE /* NetworkingManager.swift */; };
 		A8750E8328E1CBBE00B02C1C /* VM_HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8750E8228E1CBBE00B02C1C /* VM_HomeView.swift */; };
+		A8C536B928E84FD1003425E2 /* Coin360View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C536B828E84FD1003425E2 /* Coin360View.swift */; };
+		A8C536BB28E8503C003425E2 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C536BA28E8503C003425E2 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +39,10 @@
 		A85BC59228DF2358007E5130 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		A85BC59928DF2A49007E5130 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		A85BC59B28DF2E73007E5130 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A872103728E7066A00282FFE /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		A8750E8228E1CBBE00B02C1C /* VM_HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_HomeView.swift; sourceTree = "<group>"; };
+		A8C536B828E84FD1003425E2 /* Coin360View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin360View.swift; sourceTree = "<group>"; };
+		A8C536BA28E8503C003425E2 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebView.swift; path = CryptoTradingApp/Core/Coin360/WebView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 		A85BC57B28DF1457007E5130 /* CryptoTradingApp */ = {
 			isa = PBXGroup;
 			children = (
+				A872103628E7062A00282FFE /* Utilities */,
 				A85BC59428DF29C3007E5130 /* Core */,
 				A85BC59128DF233D007E5130 /* Extensions */,
 				A85BC58B28DF1F15007E5130 /* Model */,
@@ -156,6 +163,7 @@
 		A85BC59428DF29C3007E5130 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A8C536B728E84FB5003425E2 /* Coin360 */,
 				A848284028E5B7C200405907 /* Creator */,
 				A848283D28E5B7AE00405907 /* Market */,
 				A848283A28E5B59200405907 /* Services */,
@@ -168,6 +176,7 @@
 		A85BC59528DF29D0007E5130 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A8C536BA28E8503C003425E2 /* WebView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -196,6 +205,22 @@
 				A8750E8228E1CBBE00B02C1C /* VM_HomeView.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A872103628E7062A00282FFE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A872103728E7066A00282FFE /* NetworkingManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A8C536B728E84FB5003425E2 /* Coin360 */ = {
+			isa = PBXGroup;
+			children = (
+				A8C536B828E84FD1003425E2 /* Coin360View.swift */,
+			);
+			path = Coin360;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,10 +298,13 @@
 				A848284428E5B7C200405907 /* CreatorView.swift in Sources */,
 				A8750E8328E1CBBE00B02C1C /* VM_HomeView.swift in Sources */,
 				A85BC59028DF2322007E5130 /* CoinRowView.swift in Sources */,
+				A8C536BB28E8503C003425E2 /* WebView.swift in Sources */,
+				A8C536B928E84FD1003425E2 /* Coin360View.swift in Sources */,
 				A85BC57F28DF1457007E5130 /* ContentView.swift in Sources */,
 				A85BC58E28DF1F2C007E5130 /* CoinModel.swift in Sources */,
 				A848283F28E5B7AE00405907 /* MarketView.swift in Sources */,
 				A848283C28E5B5C100405907 /* CoinDataService.swift in Sources */,
+				A872103828E7066A00282FFE /* NetworkingManager.swift in Sources */,
 				A85BC59A28DF2A49007E5130 /* Double.swift in Sources */,
 				A85BC57D28DF1457007E5130 /* CryptoTradingAppApp.swift in Sources */,
 			);
