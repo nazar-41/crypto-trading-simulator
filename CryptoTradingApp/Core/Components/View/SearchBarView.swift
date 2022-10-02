@@ -33,12 +33,12 @@ struct SearchBarView: View {
                 .disableAutocorrection(true)
             
         }
-        .font(.headline)
+        .font(.subheadline)
         .padding(.horizontal, 5)
         .background(
             RoundedRectangle(cornerRadius: 10)
                 .fill(.white)
-                .shadow(color: .gray.opacity(0.2), radius: 7, x: 5, y: 5)
+                .shadow(color: .gray.opacity(0.2), radius: 10, x: 3, y: 3)
         )
         .padding(.horizontal)
         
