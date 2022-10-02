@@ -29,16 +29,12 @@ class CoinImageService{
     private func getCoinImage(){
         if let image = fileManager.getImage(folderName: folderName, imageName: imageName){
             self.image = image
-            print("got image from fileManager")
         }else{
             downloadCoinImage()
-            print("downloaded image")
         }
     }
     
-    private func downloadCoinImage(){
-        print("downloading image now")
-        
+    private func downloadCoinImage(){        
         guard let url = URL(string: coin.image) else{
             print("invalid coin image url")
             return

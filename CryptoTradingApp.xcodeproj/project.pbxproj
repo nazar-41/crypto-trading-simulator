@@ -28,6 +28,8 @@
 		A8C536C228E876E1003425E2 /* CoinImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C536C128E876E1003425E2 /* CoinImageService.swift */; };
 		A8C536C628E87BF5003425E2 /* VM_CoinImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C536C528E87BF5003425E2 /* VM_CoinImageView.swift */; };
 		A8CF5F6F28E9763800FF7586 /* LocalFileManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CF5F6E28E9763800FF7586 /* LocalFileManger.swift */; };
+		A8CF5F7328E9AC9400FF7586 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CF5F7228E9AC9400FF7586 /* SearchBarView.swift */; };
+		A8CF5F7A28E9B46300FF7586 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CF5F7928E9B46300FF7586 /* UIApplication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		A8C536C128E876E1003425E2 /* CoinImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageService.swift; sourceTree = "<group>"; };
 		A8C536C528E87BF5003425E2 /* VM_CoinImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_CoinImageView.swift; sourceTree = "<group>"; };
 		A8CF5F6E28E9763800FF7586 /* LocalFileManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManger.swift; sourceTree = "<group>"; };
+		A8CF5F7228E9AC9400FF7586 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		A8CF5F7928E9B46300FF7586 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 			children = (
 				A85BC59228DF2358007E5130 /* PreviewProvider.swift */,
 				A85BC59928DF2A49007E5130 /* Double.swift */,
+				A8CF5F7928E9B46300FF7586 /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -179,7 +184,8 @@
 		A85BC59528DF29D0007E5130 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A8C536BE28E874DB003425E2 /* CoinImage */,
+				A8CF5F7628E9AE9800FF7586 /* ViewModel */,
+				A8CF5F7528E9AE9100FF7586 /* View */,
 				A8C536BA28E8503C003425E2 /* WebView.swift */,
 				A8C536BC28E85C0F003425E2 /* API.swift */,
 			);
@@ -229,24 +235,16 @@
 			path = Coin360;
 			sourceTree = "<group>";
 		};
-		A8C536BE28E874DB003425E2 /* CoinImage */ = {
+		A8CF5F7528E9AE9100FF7586 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A8C536C428E87BE5003425E2 /* ViewModel */,
-				A8C536C328E87BDF003425E2 /* View */,
-			);
-			path = CoinImage;
-			sourceTree = "<group>";
-		};
-		A8C536C328E87BDF003425E2 /* View */ = {
-			isa = PBXGroup;
-			children = (
+				A8CF5F7228E9AC9400FF7586 /* SearchBarView.swift */,
 				A8C536BF28E874EC003425E2 /* CoinImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		A8C536C428E87BE5003425E2 /* ViewModel */ = {
+		A8CF5F7628E9AE9800FF7586 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				A8C536C528E87BF5003425E2 /* VM_CoinImageView.swift */,
@@ -324,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8CF5F7328E9AC9400FF7586 /* SearchBarView.swift in Sources */,
 				A85BC59C28DF2E73007E5130 /* HomeView.swift in Sources */,
 				A85BC59328DF2358007E5130 /* PreviewProvider.swift in Sources */,
 				A848284428E5B7C200405907 /* CreatorView.swift in Sources */,
@@ -338,6 +337,7 @@
 				A85BC57F28DF1457007E5130 /* ContentView.swift in Sources */,
 				A8CF5F6F28E9763800FF7586 /* LocalFileManger.swift in Sources */,
 				A85BC58E28DF1F2C007E5130 /* CoinModel.swift in Sources */,
+				A8CF5F7A28E9B46300FF7586 /* UIApplication.swift in Sources */,
 				A848283F28E5B7AE00405907 /* MarketView.swift in Sources */,
 				A848283C28E5B5C100405907 /* CoinDataService.swift in Sources */,
 				A872103828E7066A00282FFE /* NetworkingManager.swift in Sources */,

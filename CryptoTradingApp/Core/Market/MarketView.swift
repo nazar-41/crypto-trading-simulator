@@ -12,6 +12,8 @@ struct MarketView: View {
     
     var body: some View {
         VStack{
+            SearchBarView(searchBarText: $vm_homeview.searchBarText)
+            
             listTitleView
             
             coinListView
