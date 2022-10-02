@@ -11,12 +11,11 @@ struct MarketView: View {
     @EnvironmentObject private var vm_homeview: VM_HomeView
     
     var body: some View {
-        ScrollView{
-            VStack{
-                listTitleView
-                
-                coinListView
-            }
+        VStack{
+            listTitleView
+            
+            coinListView
+            
         }
     }
 }
@@ -43,18 +42,18 @@ extension MarketView{
             
             HStack {
                 Text("Price")
-
+                
                 Button {
                     vm_homeview.addSubscribers()
                 } label: {
                     Image(systemName: "arrow.clockwise")
                 }
-
+                
             }
             .padding(.trailing, 10)
             .frame(maxWidth: UIScreen.main.bounds.width / 3, maxHeight: .infinity, alignment: .trailing)
-
-
+            
+            
             
         }
         .frame(height: 30, alignment: .center)
@@ -64,33 +63,23 @@ extension MarketView{
     
     //MARK: Coin row
     @ViewBuilder private func coinRowView(coin: CoinModel)-> some View{
-            NavigationLink {
-                Text(coin.name)
-            } label: {
-                VStack{
-                    HStack {
-                        CoinRowView(coin: coin, showHoldingsColumn: false)
-                        Image(systemName: "chevron.right")
-                            .font(.system(size: 11, weight: .bold))
-                    }
-                    .padding(.vertical, 4)
-
-                    Divider()
-                }
-                .padding(.trailing, 5)
-            }
+        
+        VStack{
+            CoinRowView(coin: coin, showHoldingsColumn: false)
+            
         }
-
+    }
+    
     
     //MARK: Coin list view
     @ViewBuilder private var coinListView: some View{
-        ScrollView{
-            VStack{
-                ForEach(vm_homeview.allCoins){coin in
-                    //CoinRowView(coin: coin, showHoldingsColumn: false)
-                    coinRowView(coin: coin)
-                }
+        List{
+            ForEach(vm_homeview.allCoins){coin in
+                //CoinRowView(coin: coin, showHoldingsColumn: false)
+                coinRowView(coin: coin)
             }
         }
+        .listStyle(.plain)
+        .padding(.bottom, 1)
     }
 }
