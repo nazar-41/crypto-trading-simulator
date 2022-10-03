@@ -79,6 +79,7 @@ extension MarketView{
             ForEach(vm_homeview.allCoins){coin in
                 //CoinRowView(coin: coin, showHoldingsColumn: false)
                 coinRowView(coin: coin)
+                    .listRowInsets(EdgeInsets(top: 7, leading: 2, bottom: 7, trailing: 7))
             }
         }
         .listStyle(.plain)

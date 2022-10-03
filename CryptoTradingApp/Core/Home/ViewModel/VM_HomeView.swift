@@ -33,20 +33,24 @@ class VM_HomeView: ObservableObject{
         
         $searchBarText
             .combineLatest(dataService.$allCoins)
-            .map{(text, startingCoins) -> [CoinModel] in
-                guard !text.isEmpty else { return startingCoins}
-                
-                let lowercasedText = text.lowercased()
-                
-                let filteredArray = startingCoins.filter { coin in
-                    return coin.id.lowercased().contains(lowercasedText) || coin.name.lowercased().contains(lowercasedText) || coin.symbol.lowercased().contains(lowercasedText)
-                }
-                
-                return filteredArray
-            }
+            //pause for 0.5 seconds
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .map(filterCoins)
             .sink { [weak self] returnedArray in
                 self?.allCoins = returnedArray
             }
             .store(in: &cancellables)
+    }
+    
+    private func filterCoins(text: String, startingCoins: [CoinModel])-> [CoinModel]{
+        guard !text.isEmpty else { return startingCoins}
+        
+        let lowercasedText = text.lowercased()
+        
+        let filteredArray = startingCoins.filter { coin in
+            return coin.id.lowercased().contains(lowercasedText) || coin.name.lowercased().contains(lowercasedText) || coin.symbol.lowercased().contains(lowercasedText)
+        }
+        
+        return filteredArray
     }
 }
