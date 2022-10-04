@@ -12,6 +12,23 @@ struct MarketView: View {
     
     var body: some View {
         VStack{
+            
+            ScrollView(.horizontal, showsIndicators: false){
+                HStack(spacing: 10){
+                    // cryptos
+                    globalItem(title: "Cryptos", value: 12345)
+                    
+                    //exchanges
+                    globalItem(title: "Exchanges", value: 422)
+                    
+                    //market cap
+                    globalItem(title: "Market Cap", value: 432424242)
+
+                }
+                .font(.system(size: 12, weight: .regular))
+                .padding(5)
+            }
+            
             SearchBarView(searchBarText: $vm_homeview.searchBarText)
             
             listTitleView
@@ -72,7 +89,6 @@ extension MarketView{
         }
     }
     
-    
     //MARK: Coin list view
     @ViewBuilder private var coinListView: some View{
         List{
@@ -84,5 +100,13 @@ extension MarketView{
         }
         .listStyle(.plain)
         .padding(.bottom, 1)
+    }
+    
+    @ViewBuilder private func globalItem(title: String, value: Int)-> some View{
+        HStack(spacing: 1){
+            Text(title + ": ")
+            Text("\(value)")
+                .foregroundColor(.blue)
+        }
     }
 }

@@ -22,6 +22,12 @@ class DeveloperPreview{
     
     let vm_homeview = VM_HomeView()
     
+    let stat =  [StatisticModel(title: "Cryptos", value: "12432"),
+                 StatisticModel(title: "Exchanges", value: "434"),
+                 StatisticModel(title: "Market cap", value: "12343432"),
+                 StatisticModel(title: "Dominance", value: "32", percentage: 24.53)]
+
+    
     let coin = CoinModel(
        id: "bitcoin",
        symbol: "btc",

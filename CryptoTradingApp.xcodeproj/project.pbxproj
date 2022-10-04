@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A80EB4A728EB001E00931393 /* StatisticModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EB4A628EB001E00931393 /* StatisticModel.swift */; };
+		A80EB4A928EB017E00931393 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EB4A828EB017E00931393 /* StatisticView.swift */; };
 		A848283C28E5B5C100405907 /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848283B28E5B5C100405907 /* CoinDataService.swift */; };
 		A848283F28E5B7AE00405907 /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848283E28E5B7AE00405907 /* MarketView.swift */; };
 		A848284428E5B7C200405907 /* CreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848284328E5B7C200405907 /* CreatorView.swift */; };
@@ -33,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A80EB4A628EB001E00931393 /* StatisticModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticModel.swift; sourceTree = "<group>"; };
+		A80EB4A828EB017E00931393 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
 		A848283B28E5B5C100405907 /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
 		A848283E28E5B7AE00405907 /* MarketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
 		A848284328E5B7C200405907 /* CreatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorView.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				A85BC58D28DF1F2C007E5130 /* CoinModel.swift */,
+				A80EB4A628EB001E00931393 /* StatisticModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 			children = (
 				A8CF5F7228E9AC9400FF7586 /* SearchBarView.swift */,
 				A8C536BF28E874EC003425E2 /* CoinImageView.swift */,
+				A80EB4A828EB017E00931393 /* StatisticView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,7 +340,9 @@
 				A8C536C228E876E1003425E2 /* CoinImageService.swift in Sources */,
 				A8C536BB28E8503C003425E2 /* WebView.swift in Sources */,
 				A8C536B928E84FD1003425E2 /* Coin360View.swift in Sources */,
+				A80EB4A728EB001E00931393 /* StatisticModel.swift in Sources */,
 				A85BC57F28DF1457007E5130 /* ContentView.swift in Sources */,
+				A80EB4A928EB017E00931393 /* StatisticView.swift in Sources */,
 				A8CF5F6F28E9763800FF7586 /* LocalFileManger.swift in Sources */,
 				A85BC58E28DF1F2C007E5130 /* CoinModel.swift in Sources */,
 				A8CF5F7A28E9B46300FF7586 /* UIApplication.swift in Sources */,
