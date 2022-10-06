@@ -81,6 +81,16 @@ extension Double {
         return asNumberString() + "%"
     }
     
+    func asGroupedString()-> String{
+        let formatter = NumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = .decimal
+        
+        let number = NSNumber(value: self)
+        
+        return formatter.string(from: number) ?? "0.00"
+    }
+    
     
     /// Convert a Double to a String with K, M, Bn, Tr abbreviations.
     /// ```

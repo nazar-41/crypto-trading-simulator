@@ -10,26 +10,14 @@ import SwiftUI
 struct MarketView: View {
     @EnvironmentObject private var vm_homeview: VM_HomeView
     
+    @State private var readMore: Bool = false
+    
     var body: some View {
         VStack{
             
-            ScrollView(.horizontal, showsIndicators: false){
-                HStack(spacing: 10){
-                    // cryptos
-                    globalItem(title: "Cryptos", value: 12345)
-                    
-                    //exchanges
-                    globalItem(title: "Exchanges", value: 422)
-                    
-                    //market cap
-                    globalItem(title: "Market Cap", value: 432424242)
-
-                }
-                .font(.system(size: 12, weight: .regular))
-                .padding(5)
-            }
-            
             SearchBarView(searchBarText: $vm_homeview.searchBarText)
+            
+            StatisticView(stat: DeveloperPreview.instance.stat, readMore: $readMore)
             
             listTitleView
             

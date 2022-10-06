@@ -21,7 +21,7 @@ import SwiftUI
 
 struct StatisticView: View {
     let stat: [StatisticModel]
-    @State private var readMore: Bool = true
+    @Binding var readMore: Bool
     
     var body: some View {
         VStack {
@@ -34,6 +34,9 @@ struct StatisticView: View {
                     }
                 }
             }
+            .overlay (globalStatisticsTrailingGradient, alignment: .trailing)
+            .padding(.top)
+            
             
             VStack(spacing: 0){
                 Text("Today's Cryptocurrency Prices by Market Cap")
@@ -44,6 +47,8 @@ struct StatisticView: View {
                 Text("The global crypto market cap is $928.98B, a 0.40% increase over the last day")
                     .font(.system(size: 12))
                     .padding(.top, 10)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .multilineTextAlignment(.leading)
                 
                 HStack{
                     Spacer()
@@ -62,29 +67,31 @@ struct StatisticView: View {
 
                 }
                 
+                if readMore{
+                    
                     VStack(spacing: 10){
                         Group{
-                                
-                                Text("The total crypto market volume over the last 24 hours is **$47.05B** which makes a ") +
+                            
+                            Text("The total crypto market volume over the last 24 hours is **$47.05B** which makes a ") +
                             
                             
-                                Text(Image(systemName: "arrowtriangle.up.fill"))
-                                    .foregroundColor(.green)
-                                    .fontWeight(.semibold) +
+                            Text(Image(systemName: "arrowtriangle.up.fill"))
+                                .foregroundColor(.green)
+                                .fontWeight(.semibold) +
                             
-                                Text("22.42B")
-                                    .foregroundColor(.green)
-                                    .fontWeight(.semibold) +
-                                
-                                Text(" increase. The total volume in DeFi is currently **$3.79B, 8.05%** of the total crypto market 24-hour volume. The volume of all stable coins is now **$44.60B**, which is **94.80%** of the total crypto market 24-hour volume. \n\nBitcoin’s dominance is currently **39.66%**, an increase of ") +
-
-
-                                Text("0.07%")
-                                    .foregroundColor(.green)
-                                    .fontWeight(.semibold) +
-
-                                Text(" over the day")
-
+                            Text("22.42B")
+                                .foregroundColor(.green)
+                                .fontWeight(.semibold) +
+                            
+                            Text(" increase. The total volume in DeFi is currently **$3.79B, 8.05%** of the total crypto market 24-hour volume. The volume of all stable coins is now **$44.60B**, which is **94.80%** of the total crypto market 24-hour volume. \n\nBitcoin’s dominance is currently **39.66%**, an increase of ") +
+                            
+                            
+                            Text("0.07%")
+                                .foregroundColor(.green)
+                                .fontWeight(.semibold) +
+                            
+                            Text(" over the day")
+                            
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .multilineTextAlignment(.leading)
@@ -93,20 +100,20 @@ struct StatisticView: View {
                     }
                     .font(.system(size: 13))
                     .opacity(readMore ? 1 : 0)
-                    .frame(height: readMore ? .infinity : 0)
+                    // .frame(maxHeight: readMore ? .infinity : 0)
                     .clipped()
+                }
                     
             }
-            
-            Spacer()
+            .padding(.top)
         }
-        .padding(.top, 100)
+        .padding(10)
     }
 }
 
 struct StatisticView_Previews: PreviewProvider {
     static var previews: some View {
-        StatisticView(stat: dev.stat)
+        StatisticView(stat: dev.stat, readMore: .constant(false))
             .previewLayout(.sizeThatFits)
     }
 }
@@ -121,6 +128,13 @@ extension StatisticView{
                 .foregroundColor(.blue)
         }
         .font(.system(size: 12, weight: .regular))
+    }
+    
+    @ViewBuilder private var globalStatisticsTrailingGradient: some View{
+        Rectangle()
+            .fill(LinearGradient(colors: [.clear, .white], startPoint: .leading, endPoint: .trailing))
+            .frame(width: 50)
+        
     }
     
 }
