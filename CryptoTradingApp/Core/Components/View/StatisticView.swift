@@ -44,11 +44,24 @@ struct StatisticView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
                 
-                Text("The global crypto market cap is $928.98B, a 0.40% increase over the last day")
-                    .font(.system(size: 12))
-                    .padding(.top, 10)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .multilineTextAlignment(.leading)
+                Group{
+                    
+                    Text("The global crypto market cap is **$928.98B**, a ")
+                        .font(.system(size: 13)) +
+                    // .padding(.top, 10)
+                    // .frame(maxWidth: .infinity, alignment: .leading)
+                    // .multilineTextAlignment(.leading) +
+                    
+                    Text("0.40%")
+                        .foregroundColor(.green)
+                        .fontWeight(.semibold)
+                        .font(.system(size: 13)) +
+                    
+                    Text(" increase over the last day")
+                        .font(.system(size: 13))
+                }
+                .padding(.top, 5)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 
                 HStack{
                     Spacer()
@@ -113,7 +126,7 @@ struct StatisticView: View {
 
 struct StatisticView_Previews: PreviewProvider {
     static var previews: some View {
-        StatisticView(stat: dev.stat, readMore: .constant(false))
+        StatisticView(stat: dev.stat, readMore: .constant(true))
             .previewLayout(.sizeThatFits)
     }
 }

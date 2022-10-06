@@ -26,6 +26,16 @@ class DeveloperPreview{
                  StatisticModel(title: "Exchanges", value: "434"),
                  StatisticModel(title: "Market cap", value: "12343432"),
                  StatisticModel(title: "Dominance", value: "32", percentage: 24.53)]
+    
+
+    let exchange = ExchangeModel(rank: 1,
+                                 score: 9.9,
+                                 name: "Crypto.com Exchange",
+                                 volume24hUSD: 23242424.42,
+                                 volume24Percentage: 12.24,
+                                 weeklyVisits: 2424232424,
+                                 coins: 142,
+                                 image: nil)
 
     
     let coin = CoinModel(

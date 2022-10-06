@@ -8,44 +8,31 @@
 import SwiftUI
 
 struct ExchangeRowStatisticsView: View {
-    let columnWidth: CGFloat = 130 //UIScreen.main.bounds.width / 3
+    let columnWidth: CGFloat = 130
+    
+    let testData: ExchangeModel
     
     var body: some View {
-        ScrollView(.horizontal){
             VStack(alignment: .trailing){
-                HStack{
-                    Text("Score")
-                        .frame(width: columnWidth)
-                    
-                    Text("Valume 24h")
-                        .frame(width: columnWidth, alignment: .trailing)
-                    
-                    Text("Weekly visits")
-                        .frame(width: columnWidth, alignment: .trailing)
-                    
-                    
-                }
-                .font(.caption)
                 
                 HStack{
-                    scoreColumnView(score: 4)
+                    scoreColumnView(score: testData.score)
                     
-                    volume24HColumn(volume: 32424223.56, percentage: -23)
+                    volume24HColumn(volume: testData.volume24hUSD, percentage: testData.volume24Percentage)
                     
-                    weeklyVisitsColumn(value: 1354543582)
+                    weeklyVisitsColumn(value: testData.weeklyVisits)
                     
                     
                     // Spacer()
                 }
                 .font(.system(size: 13, weight: .semibold))
-            }
         }
     }
 }
 
 struct ExchangeRowStatisticsView_Previews: PreviewProvider {
     static var previews: some View {
-        ExchangeRowStatisticsView()
+        ExchangeRowStatisticsView(testData: dev.exchange)
     }
 }
 
@@ -78,8 +65,7 @@ extension ExchangeRowStatisticsView{
 
             }
         }
-        .frame(width: columnWidth)
-        .border(.red)
+        .frame(width: 100)
     }
     
     //MARK: 24H volume
@@ -101,7 +87,6 @@ extension ExchangeRowStatisticsView{
             
         }
         .frame(width: columnWidth, alignment: .trailing)
-        .border(.yellow)
     }
     
     //MARK: 7d visits
@@ -110,7 +95,6 @@ extension ExchangeRowStatisticsView{
             Text("\(value)")
         }
         .frame(width: columnWidth, alignment: .trailing)
-        .border(.green)
     }
     
 
