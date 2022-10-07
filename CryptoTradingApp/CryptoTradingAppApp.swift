@@ -9,7 +9,8 @@ import SwiftUI
 
 @main
 struct CryptoTradingAppApp: App {
-    @StateObject var vm_homeView = VM_HomeView()
+    @StateObject private var vm_homeView = VM_HomeView()
+    @StateObject private var vm_exchangeListView = VM_ExchangeListView()
     
     var body: some Scene {
         WindowGroup {
@@ -18,6 +19,7 @@ struct CryptoTradingAppApp: App {
                     .navigationBarHidden(true)
             }
             .environmentObject(vm_homeView)
+            .environmentObject(vm_exchangeListView)
         }
     }
 }

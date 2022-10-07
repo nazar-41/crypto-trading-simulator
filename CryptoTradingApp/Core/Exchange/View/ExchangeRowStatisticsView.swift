@@ -16,11 +16,11 @@ struct ExchangeRowStatisticsView: View {
             VStack(alignment: .trailing){
                 
                 HStack{
-                    scoreColumnView(score: testData.score)
+                    scoreColumnView(score: testData.trustScore ?? 0)
                     
-                    volume24HColumn(volume: testData.volume24hUSD, percentage: testData.volume24Percentage)
+                    volume24HColumn(volume: testData.tradeVolume24hBTCNormalized ?? 0, percentage: 0)
                     
-                    weeklyVisitsColumn(value: testData.weeklyVisits)
+                    weeklyVisitsColumn(value: 0)
                     
                     
                     // Spacer()
@@ -39,27 +39,27 @@ struct ExchangeRowStatisticsView_Previews: PreviewProvider {
 extension ExchangeRowStatisticsView{
     
     //MARK: score
-    @ViewBuilder private func scoreColumnView(score: Double)-> some View{
+    @ViewBuilder private func scoreColumnView(score: Int)-> some View{
         VStack{
             ZStack{
-                if score > 6.0 && score < 10 {
+                if score > 6 && score <= 10 {
                     Color(.green)
                         .opacity(0.7)
                         .frame(width: 40, height: 30)
                         .cornerRadius(5)
-                }else if score <= 6.0 && score > 4{
+                }else if score <= 6 && score > 4{
                     Color(.orange)
                         .opacity(0.7)
                         .frame(width: 40, height: 30)
                         .cornerRadius(5)
-                }else if score <= 4.0{
+                }else if score <= 4{
                     Color(.red)
                         .opacity(0.7)
                         .frame(width: 40, height: 30)
                         .cornerRadius(5)
                 }
                 
-                Text(String(format: "%.1f", score))
+                Text("\(score)")
                     .font(.headline)
                     .foregroundColor(.white)
 

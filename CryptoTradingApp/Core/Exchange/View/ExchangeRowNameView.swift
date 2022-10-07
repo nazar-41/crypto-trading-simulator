@@ -22,20 +22,20 @@ struct ExchangeRowNameView: View {
                     .frame(width: 30, height: 30)
             }
             
-            VStack(alignment: .leading, spacing: 0){
+            VStack(alignment: .leading, spacing: 5){
                 Text(name)
-                    .lineLimit(2)
                     .font(.system(size: 15, weight: .medium))
                 
                 ZStack{
                     
                     Color.gray.opacity(0.3).cornerRadius(5)
-                        .frame(width: 20, height: 20)
+                        .frame(width: 30, height: 20)
                     
                     Text("\(rank)")
                         .font(.system(size: 12, weight: .medium))
                 }
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 }

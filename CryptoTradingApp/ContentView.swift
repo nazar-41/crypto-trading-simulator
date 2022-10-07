@@ -17,7 +17,7 @@ struct ContentView: View {
             
             tabItemView(view: Text("Trade"), label: "Trade", icon: "bitcoinsign")
                         
-            tabItemView(view: Text("Exchanges"), label: "Exchanges", icon: "e.circle.fill")
+            tabItemView(view: ExchangeLIstView(), label: "Exchanges", icon: "e.circle.fill")
             
             tabItemView(view: Coin360View(), label: "coin360", icon: "globe")
 

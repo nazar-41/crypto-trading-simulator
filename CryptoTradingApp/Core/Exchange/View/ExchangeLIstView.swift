@@ -8,74 +8,15 @@
 import SwiftUI
 
 struct ExchangeLIstView: View {
-    let exchangeList: [ExchangeModel] = [DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,                            DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,                            DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,
-                                         DeveloperPreview.instance.exchange,]
+  
+    @EnvironmentObject private var vm_exchangeListView: VM_ExchangeListView
     
     let columnWidth: CGFloat = 130 //UIScreen.main.bounds.width / 3
 
+    
+    init(){
+        //print("\n exchange list here: \(vm_exchangeListView.allExchanges) \n")
+    }
     
     @State private var searchText: String = ""
     var body: some View {
@@ -89,10 +30,10 @@ struct ExchangeLIstView: View {
                // ForEach(exchangeList){ exchange in
                     HStack(spacing: 0){
                         VStack(spacing: 0){
-                            ForEach(exchangeList){exchange in
-                                ExchangeRowNameView(name: exchange.name, image: nil, rank: exchange.rank)
-                                    .frame(height: 50)
-                                    .padding(.trailing)
+                            ForEach(vm_exchangeListView.allExchanges){exchange in
+                                ExchangeRowNameView(name: exchange.name ?? "", image: nil, rank: exchange.trustScoreRank ?? 0)
+                                    .frame(height: 55)
+                                    .padding(.trailing, 10)
 
                                 
                                 Divider()
@@ -105,9 +46,9 @@ struct ExchangeLIstView: View {
                             exchangeStatisticsHeader
                             
                             VStack(spacing: 0){
-                                ForEach(exchangeList){exchange in
+                                ForEach(vm_exchangeListView.allExchanges){exchange in
                                     ExchangeRowStatisticsView(testData: exchange)
-                                        .frame(height: 50)
+                                        .frame(height: 55)
                                     
                                     Divider()
                                 }
@@ -122,12 +63,14 @@ struct ExchangeLIstView: View {
             .padding(.top)
             .listStyle(.plain)
         }
+        .padding(.bottom, 1)
     }
 }
 
 struct ExchangeLIstView_Previews: PreviewProvider {
     static var previews: some View {
         ExchangeLIstView()
+            .environmentObject(dev.vm_exchangeListView)
     }
 }
 

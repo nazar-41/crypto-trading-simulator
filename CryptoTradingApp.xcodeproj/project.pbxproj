@@ -21,6 +21,8 @@
 		A85BC59328DF2358007E5130 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85BC59228DF2358007E5130 /* PreviewProvider.swift */; };
 		A85BC59A28DF2A49007E5130 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85BC59928DF2A49007E5130 /* Double.swift */; };
 		A85BC59C28DF2E73007E5130 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85BC59B28DF2E73007E5130 /* HomeView.swift */; };
+		A871BB8728F03878006BC3CD /* VM_ExchangeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871BB8628F03878006BC3CD /* VM_ExchangeListView.swift */; };
+		A871BB8928F038D8006BC3CD /* ExchangeDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */; };
 		A872103828E7066A00282FFE /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A872103728E7066A00282FFE /* NetworkingManager.swift */; };
 		A8750E8328E1CBBE00B02C1C /* VM_HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8750E8228E1CBBE00B02C1C /* VM_HomeView.swift */; };
 		A87909CC28EC621200FAD403 /* ExchangeRowNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87909CB28EC621200FAD403 /* ExchangeRowNameView.swift */; };
@@ -54,6 +56,8 @@
 		A85BC59228DF2358007E5130 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		A85BC59928DF2A49007E5130 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		A85BC59B28DF2E73007E5130 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A871BB8628F03878006BC3CD /* VM_ExchangeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_ExchangeListView.swift; sourceTree = "<group>"; };
+		A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDataService.swift; sourceTree = "<group>"; };
 		A872103728E7066A00282FFE /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		A8750E8228E1CBBE00B02C1C /* VM_HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_HomeView.swift; sourceTree = "<group>"; };
 		A87909CB28EC621200FAD403 /* ExchangeRowNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRowNameView.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 			children = (
 				A848283B28E5B5C100405907 /* CoinDataService.swift */,
 				A8C536C128E876E1003425E2 /* CoinImageService.swift */,
+				A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 		A87909CA28EC61F500FAD403 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A871BB8628F03878006BC3CD /* VM_ExchangeListView.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -376,6 +382,7 @@
 				A8C536C228E876E1003425E2 /* CoinImageService.swift in Sources */,
 				A8C536BB28E8503C003425E2 /* WebView.swift in Sources */,
 				A8C536B928E84FD1003425E2 /* Coin360View.swift in Sources */,
+				A871BB8928F038D8006BC3CD /* ExchangeDataService.swift in Sources */,
 				A80EB4A728EB001E00931393 /* StatisticModel.swift in Sources */,
 				A85BC57F28DF1457007E5130 /* ContentView.swift in Sources */,
 				A80EB4A928EB017E00931393 /* StatisticView.swift in Sources */,
@@ -384,6 +391,7 @@
 				A8CF5F7A28E9B46300FF7586 /* UIApplication.swift in Sources */,
 				A8D2463A28EEEB9F0019F07E /* ExchangeModel.swift in Sources */,
 				A848283F28E5B7AE00405907 /* MarketView.swift in Sources */,
+				A871BB8728F03878006BC3CD /* VM_ExchangeListView.swift in Sources */,
 				A87909CE28EC690B00FAD403 /* ExchangeRowStatisticsView.swift in Sources */,
 				A848283C28E5B5C100405907 /* CoinDataService.swift in Sources */,
 				A872103828E7066A00282FFE /* NetworkingManager.swift in Sources */,

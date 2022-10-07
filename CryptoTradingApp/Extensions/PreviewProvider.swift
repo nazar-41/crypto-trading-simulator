@@ -21,6 +21,7 @@ class DeveloperPreview{
     init(){}
     
     let vm_homeview = VM_HomeView()
+    let vm_exchangeListView = VM_ExchangeListView()
     
     let stat =  [StatisticModel(title: "Cryptos", value: "12432"),
                  StatisticModel(title: "Exchanges", value: "434"),
@@ -28,14 +29,18 @@ class DeveloperPreview{
                  StatisticModel(title: "Dominance", value: "32", percentage: 24.53)]
     
 
-    let exchange = ExchangeModel(rank: 1,
-                                 score: 9.9,
-                                 name: "Crypto.com Exchange",
-                                 volume24hUSD: 23242424.42,
-                                 volume24Percentage: 12.24,
-                                 weeklyVisits: 2424232424,
-                                 coins: 142,
-                                 image: nil)
+    let exchange = ExchangeModel(id: "binance",
+                                 name: "Binance",
+                                 yearEstablished: 2017,
+                                 country: "California",
+                                 description: "Crypto trading exchange",
+                                 url: "https://binance.com",
+                                 image: "",
+                                 hasTradingIncentive: true,
+                                 trustScore: 10,
+                                 trustScoreRank: 1,
+                                 tradeVolume24hBTC: 1342.42,
+                                 tradeVolume24hBTCNormalized: 1342.42)
 
     
     let coin = CoinModel(

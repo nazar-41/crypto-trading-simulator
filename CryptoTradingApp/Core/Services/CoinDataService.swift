@@ -31,7 +31,7 @@ class CoinDataService{
             .sink(receiveCompletion: NetworkingManger.handleComlition, receiveValue: {[weak self] returnedModel in
                 guard let self = self else{return}
                 
-                print("\nreturned model")
+                print("\nreturned coin model")
                 
                 self.allCoins = returnedModel
                 self.coinSubscription?.cancel()
