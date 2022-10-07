@@ -32,6 +32,12 @@ struct ExchangeModel: Identifiable, Codable{
         case tradeVolume24hBTC = "trade_volume_24h_btc"
         case tradeVolume24hBTCNormalized = "trade_volume_24h_btc_normalized"
     }
+    
+    
+    func tradeVolume24hUSD(btcPrice: Double)-> Int{
+        return Int(btcPrice * (tradeVolume24hBTC ?? 0))
+
+    }
 }
 
 

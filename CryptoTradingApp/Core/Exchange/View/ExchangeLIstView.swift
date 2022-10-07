@@ -10,6 +10,7 @@ import SwiftUI
 struct ExchangeLIstView: View {
   
     @EnvironmentObject private var vm_exchangeListView: VM_ExchangeListView
+    @EnvironmentObject private var vm_homeView: VM_HomeView
     
     let columnWidth: CGFloat = 130 //UIScreen.main.bounds.width / 3
 
@@ -47,7 +48,7 @@ struct ExchangeLIstView: View {
                             
                             VStack(spacing: 0){
                                 ForEach(vm_exchangeListView.allExchanges){exchange in
-                                    ExchangeRowStatisticsView(testData: exchange)
+                                    ExchangeRowStatisticsView(testData: exchange, btcPrice: vm_homeView.btcPrice ?? 0)
                                         .frame(height: 55)
                                     
                                     Divider()

@@ -31,7 +31,7 @@ class ExchangeDataService{
                 guard let self = self else{return}
                 
                 print("\nreturned exhange list")
-                print("\n \(returnedModel) \n")
+              //  print("\n \(returnedModel) \n")
                 
                 self.allExchanges = returnedModel
                 self.exchangeSubscription?.cancel()

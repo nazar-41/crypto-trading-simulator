@@ -15,6 +15,8 @@ class VM_HomeView: ObservableObject{
     
     @Published var searchBarText: String = ""
     
+    @Published var btcPrice: Double?
+    
     private let dataService = CoinDataService()
     private var cancellables = Set<AnyCancellable>()
     
@@ -37,7 +39,10 @@ class VM_HomeView: ObservableObject{
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .map(filterCoins)
             .sink { [weak self] returnedArray in
-                self?.allCoins = returnedArray
+                guard let self = self else {return}
+                self.allCoins = returnedArray
+                
+                self.getBtcPrice()
             }
             .store(in: &cancellables)
     }
@@ -52,5 +57,14 @@ class VM_HomeView: ObservableObject{
         }
         
         return filteredArray
+    }
+    
+    private func getBtcPrice(){
+        if let btcPrice = allCoins.filter({$0.id == "bitcoin"}).first{
+            self.btcPrice = btcPrice.currentPrice
+            print("btc price is: \(self.btcPrice)")
+        }else{
+            print("invalid btc price")
+        }
     }
 }

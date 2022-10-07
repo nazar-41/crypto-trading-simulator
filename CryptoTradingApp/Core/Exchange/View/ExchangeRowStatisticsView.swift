@@ -11,6 +11,7 @@ struct ExchangeRowStatisticsView: View {
     let columnWidth: CGFloat = 130
     
     let testData: ExchangeModel
+    let btcPrice: Double
     
     var body: some View {
             VStack(alignment: .trailing){
@@ -18,7 +19,10 @@ struct ExchangeRowStatisticsView: View {
                 HStack{
                     scoreColumnView(score: testData.trustScore ?? 0)
                     
-                    volume24HColumn(volume: testData.tradeVolume24hBTCNormalized ?? 0, percentage: 0)
+                    //volume24HColumn(volume: testData.tradeVolume24hBTCNormalized ?? 0, percentage: 0)
+                    
+                    volume24HColumn(volume: testData.tradeVolume24hUSD(btcPrice: btcPrice), percentage: 0)
+
                     
                     weeklyVisitsColumn(value: 0)
                     
@@ -32,7 +36,7 @@ struct ExchangeRowStatisticsView: View {
 
 struct ExchangeRowStatisticsView_Previews: PreviewProvider {
     static var previews: some View {
-        ExchangeRowStatisticsView(testData: dev.exchange)
+        ExchangeRowStatisticsView(testData: dev.exchange, btcPrice: 13533.24)
     }
 }
 
@@ -69,11 +73,11 @@ extension ExchangeRowStatisticsView{
     }
     
     //MARK: 24H volume
-    @ViewBuilder private func volume24HColumn(volume: Double, percentage: Double)-> some View{
+    @ViewBuilder private func volume24HColumn(volume: Int, percentage: Double)-> some View{
         VStack(alignment: .trailing, spacing: 2){
             let isIncreased = percentage > 0
             
-            Text(volume.asCurrencyWith2Decimals())
+            Text("\(volume)")
             
             HStack(spacing: 0){
                 Image(systemName: "arrowtriangle.up.fill")
