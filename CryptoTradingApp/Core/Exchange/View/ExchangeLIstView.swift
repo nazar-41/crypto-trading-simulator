@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExchangeLIstView: View {
+struct ExchangeListView: View {
   
     @EnvironmentObject private var vm_exchangeListView: VM_ExchangeListView
     @EnvironmentObject private var vm_homeView: VM_HomeView
@@ -26,57 +26,99 @@ struct ExchangeLIstView: View {
             
 
 
-            
-            ScrollView(showsIndicators: false){
-               // ForEach(exchangeList){ exchange in
-                    HStack(spacing: 0){
-                        VStack(spacing: 0){
+            ScrollView{
+                HStack(spacing: 0){
+                    // exchange name, rank, image
+                    VStack{
+                        LazyVStack{
                             ForEach(vm_exchangeListView.allExchanges){exchange in
-                                ExchangeRowNameView(name: exchange.name ?? "", image: nil, rank: exchange.trustScoreRank ?? 0)
+                                ExchangeRowNameView(name: exchange.name, image: nil, rank: exchange.trustScoreRank)
                                     .frame(height: 55)
                                     .padding(.trailing, 10)
-
                                 
                                 Divider()
                             }
                         }
-                        .padding(.top, 25)
-                        
-                        
+                    }
+                    .padding(.top, 25)
+
+                    VStack {
                         ScrollView(.horizontal, showsIndicators: false){
                             exchangeStatisticsHeader
                             
-                            VStack(spacing: 0){
+                            LazyVStack{
+                                
                                 ForEach(vm_exchangeListView.allExchanges){exchange in
-                                    ExchangeRowStatisticsView(testData: exchange, btcPrice: vm_homeView.btcPrice ?? 0)
+
+                                    ExchangeRowStatisticsView(testData: exchange, btcPrice: vm_homeView.btcPrice)
                                         .frame(height: 55)
                                     
                                     Divider()
                                 }
+
+                                
+                             //   .padding(.top, 100)
                             }
+                            
+                            Spacer()
+                            
                         }
                     }
-                    .padding(.horizontal)
-                
-                Divider()
-               // }
+                }
             }
-            .padding(.top)
-            .listStyle(.plain)
+            .padding()
+
+            
+//            ScrollView(showsIndicators: false){
+//               // ForEach(exchangeList){ exchange in
+//                    HStack(spacing: 0){
+//                        VStack(spacing: 0){
+//                            ForEach(vm_exchangeListView.allExchanges){exchange in
+//                                ExchangeRowNameView(name: exchange.name ?? "", image: nil, rank: exchange.trustScoreRank ?? 0)
+//                                    .frame(height: 55)
+//                                    .padding(.trailing, 10)
+//
+//
+//                                Divider()
+//                            }
+//                        }
+//                        .padding(.top, 25)
+//
+//
+//                        ScrollView(.horizontal, showsIndicators: false){
+//                            exchangeStatisticsHeader
+//
+//                            VStack(spacing: 0){
+//                                ForEach(vm_exchangeListView.allExchanges){exchange in
+//                                    ExchangeRowStatisticsView(testData: exchange, btcPrice: vm_homeView.btcPrice ?? 0)
+//                                        .frame(height: 55)
+//
+//                                    Divider()
+//                                }
+//                            }
+//                        }
+//                    }
+//                    .padding(.horizontal)
+//
+//                Divider()
+//               // }
+//            }
+//            .padding(.top)
         }
         .padding(.bottom, 1)
     }
 }
 
-struct ExchangeLIstView_Previews: PreviewProvider {
+struct ExchangeListView_Previews: PreviewProvider {
     static var previews: some View {
-        ExchangeLIstView()
+        ExchangeListView()
             .environmentObject(dev.vm_exchangeListView)
+            .environmentObject(dev.vm_homeview)
     }
 }
 
 
-extension ExchangeLIstView{
+extension ExchangeListView{
     @ViewBuilder private var exchangeStatisticsHeader: some View{
         
         HStack{

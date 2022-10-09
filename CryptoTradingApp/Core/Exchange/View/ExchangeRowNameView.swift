@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ExchangeRowNameView: View {
-    let name: String
+    let name: String?
     let image: UIImage?
-    let rank: Int
+    let rank: Int?
     
     var body: some View {
         HStack{
@@ -23,7 +23,7 @@ struct ExchangeRowNameView: View {
             }
             
             VStack(alignment: .leading, spacing: 5){
-                Text(name)
+                Text(name ?? "")
                     .font(.system(size: 15, weight: .medium))
                 
                 ZStack{
@@ -31,7 +31,7 @@ struct ExchangeRowNameView: View {
                     Color.gray.opacity(0.3).cornerRadius(5)
                         .frame(width: 30, height: 20)
                     
-                    Text("\(rank)")
+                    Text(String(rank ?? 0))
                         .font(.system(size: 12, weight: .medium))
                 }
             }
@@ -42,6 +42,6 @@ struct ExchangeRowNameView: View {
 
 struct ExchangeRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ExchangeRowNameView(name: "Binance", image: nil, rank: 1)
+        ExchangeRowNameView(name: "Binace", image: nil, rank: 1)
     }
 }

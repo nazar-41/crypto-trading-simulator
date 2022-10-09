@@ -11,7 +11,7 @@ struct ExchangeRowStatisticsView: View {
     let columnWidth: CGFloat = 130
     
     let testData: ExchangeModel
-    let btcPrice: Double
+    let btcPrice: Double?
     
     var body: some View {
             VStack(alignment: .trailing){
@@ -30,6 +30,7 @@ struct ExchangeRowStatisticsView: View {
                     // Spacer()
                 }
                 .font(.system(size: 13, weight: .semibold))
+                .padding(.trailing)
         }
     }
 }
