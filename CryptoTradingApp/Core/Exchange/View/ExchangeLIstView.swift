@@ -32,7 +32,7 @@ struct ExchangeListView: View {
                     VStack{
                         LazyVStack{
                             ForEach(vm_exchangeListView.allExchanges){exchange in
-                                ExchangeRowNameView(name: exchange.name, image: nil, rank: exchange.trustScoreRank)
+                                ExchangeRowNameView(exchange: exchange)
                                     .frame(height: 55)
                                     .padding(.trailing, 10)
                                 

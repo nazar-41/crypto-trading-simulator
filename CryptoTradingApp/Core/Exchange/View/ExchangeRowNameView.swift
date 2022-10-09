@@ -8,22 +8,16 @@
 import SwiftUI
 
 struct ExchangeRowNameView: View {
-    let name: String?
-    let image: UIImage?
-    let rank: Int?
+    
+    let exchange: ExchangeModel
     
     var body: some View {
         HStack{
-            if let image = image{
-                Image(uiImage: image)
-            }else{
-                Circle()
-             //   ProgressView()
-                    .frame(width: 30, height: 30)
-            }
+            ExchangeImageView(exchange: exchange)
+                .frame(width: 30, height: 30)
             
             VStack(alignment: .leading, spacing: 5){
-                Text(name ?? "")
+                Text(exchange.name ?? "")
                     .font(.system(size: 15, weight: .medium))
                 
                 ZStack{
@@ -31,7 +25,7 @@ struct ExchangeRowNameView: View {
                     Color.gray.opacity(0.3).cornerRadius(5)
                         .frame(width: 30, height: 20)
                     
-                    Text(String(rank ?? 0))
+                    Text(String(exchange.trustScoreRank ?? 0))
                         .font(.system(size: 12, weight: .medium))
                 }
             }
@@ -42,6 +36,6 @@ struct ExchangeRowNameView: View {
 
 struct ExchangeRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ExchangeRowNameView(name: "Binace", image: nil, rank: 1)
+        ExchangeRowNameView(exchange: dev.exchange)
     }
 }

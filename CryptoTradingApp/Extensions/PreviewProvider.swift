@@ -35,7 +35,7 @@ class DeveloperPreview{
                                  country: "California",
                                  description: "Crypto trading exchange",
                                  url: "https://binance.com",
-                                 image: "",
+                                 image: "https://assets.coingecko.com/markets/images/760/small/netswap.png?1641437122",
                                  hasTradingIncentive: true,
                                  trustScore: 10,
                                  trustScoreRank: 1,
