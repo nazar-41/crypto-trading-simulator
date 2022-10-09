@@ -19,10 +19,10 @@ struct ExchangeListView: View {
         //print("\n exchange list here: \(vm_exchangeListView.allExchanges) \n")
     }
     
-    @State private var searchText: String = ""
+ //   @State private var searchText: String = ""
     var body: some View {
         VStack {
-            SearchBarView(searchBarText: $searchText)
+            SearchBarView(searchBarText: $vm_exchangeListView.searchBarText)
             
 
 

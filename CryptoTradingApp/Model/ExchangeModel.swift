@@ -8,8 +8,8 @@
 import Foundation
 
 struct ExchangeModel: Identifiable, Codable{
-    let id: String?
-    let name: String?
+    let id: String
+    let name: String
     let yearEstablished: Int?
     let country: String?
     let description: String?
