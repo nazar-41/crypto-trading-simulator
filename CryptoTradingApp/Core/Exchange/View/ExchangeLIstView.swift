@@ -128,7 +128,13 @@ extension ExchangeListView{
             Text("Valume 24h")
                 .frame(width: columnWidth, alignment: .trailing)
             
-            Text("Weekly visits")
+            Text("Country")
+                .frame(width: columnWidth, alignment: .trailing)
+            
+            Text("Year established")
+                .frame(width: columnWidth, alignment: .trailing)
+            
+            Text("Website")
                 .frame(width: columnWidth, alignment: .trailing)
             
             

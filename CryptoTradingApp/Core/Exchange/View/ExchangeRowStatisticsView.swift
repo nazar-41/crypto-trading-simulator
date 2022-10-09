@@ -21,11 +21,14 @@ struct ExchangeRowStatisticsView: View {
                     
                     //volume24HColumn(volume: testData.tradeVolume24hBTCNormalized ?? 0, percentage: 0)
                     
-                    volume24HColumn(volume: testData.tradeVolume24hUSD(btcPrice: btcPrice), percentage: 0)
+                    volume24HColumn(volume: testData.tradeVolume24hUSD(btcPrice: btcPrice))
 
                     
-                    weeklyVisitsColumn(value: 0)
+                    countryColumn(country: testData.country)
                     
+                    yearEstablishedColumn(year: testData.yearEstablished)
+                    
+                    websiteColumn(name: testData.name, url: testData.url)
                     
                     // Spacer()
                 }
@@ -74,33 +77,45 @@ extension ExchangeRowStatisticsView{
     }
     
     //MARK: 24H volume
-    @ViewBuilder private func volume24HColumn(volume: Int, percentage: Double)-> some View{
+    @ViewBuilder private func volume24HColumn(volume: Int)-> some View{
         VStack(alignment: .trailing, spacing: 2){
-            let isIncreased = percentage > 0
-            
-            Text("\(volume)")
-            
-            HStack(spacing: 0){
-                Image(systemName: "arrowtriangle.up.fill")
-                    .foregroundColor(isIncreased ? .green : .red)
-                    .font(.caption)
-                    .rotationEffect(Angle(degrees: percentage > 0 ? 0 : 180))
-                
-                Text("\(percentage.asPercentString())")
-                    .foregroundColor(isIncreased ? .green : .red)
-            }
-            
+            Text("$\(volume)")
         }
         .frame(width: columnWidth, alignment: .trailing)
+
     }
     
     //MARK: 7d visits
-    @ViewBuilder private func weeklyVisitsColumn(value: Int)-> some View{
+    @ViewBuilder private func countryColumn(country: String?)-> some View{
         VStack{
-            Text("\(value)")
+            Text(country ?? "N/A")
         }
         .frame(width: columnWidth, alignment: .trailing)
     }
     
-
+    @ViewBuilder private func yearEstablishedColumn(year: Int?)-> some View{
+        VStack{
+            if let wrapped = year{
+                Text(String(wrapped))
+            }else{
+                Text("N/A")
+            }
+        }
+        .frame(width: columnWidth, alignment: .trailing)
+    }
+    
+    @ViewBuilder private func websiteColumn(name: String?, url: String?)-> some View{
+        VStack{
+            if let wrappedURL = URL(string: url ?? ""),
+               let wrappedName = name{
+                //Text("[\(wrappedName)](\(wrappedURL)")
+                Link(wrappedName, destination: wrappedURL)
+                    .foregroundColor(.blue)
+                    .multilineTextAlignment(.trailing)
+            }else{
+                Text("N/A")
+            }
+        }
+        .frame(width: columnWidth, alignment: .trailing)
+    }
 }
