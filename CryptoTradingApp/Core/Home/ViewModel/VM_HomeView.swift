@@ -17,7 +17,11 @@ class VM_HomeView: ObservableObject{
     
     @Published var btcPrice: Double?
     
-    private let dataService = CoinDataService()
+    @Published var globalMarketData: MarketDataModel?
+    
+    private let coinDataService = CoinDataService()
+    private let globalMarketDataService = MarketDataService()
+    
     private var cancellables = Set<AnyCancellable>()
     
     init(){
@@ -34,7 +38,7 @@ class VM_HomeView: ObservableObject{
 //            .store(in: &cancellables)
         
         $searchBarText
-            .combineLatest(dataService.$allCoins)
+            .combineLatest(coinDataService.$allCoins)
             //pause for 0.5 seconds
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .map(filterCoins)
@@ -43,6 +47,13 @@ class VM_HomeView: ObservableObject{
                 self.allCoins = returnedArray
                 
                 self.getBtcPrice()
+            }
+            .store(in: &cancellables)
+        
+        globalMarketDataService.$marketData
+            .sink {[weak self] receivedMarketData in
+                guard let self = self else{return}
+                self.globalMarketData = receivedMarketData
             }
             .store(in: &cancellables)
     }
@@ -60,11 +71,18 @@ class VM_HomeView: ObservableObject{
     }
     
     private func getBtcPrice(){
-        if let btcPrice = allCoins.filter({$0.id == "bitcoin"}).first{
-            self.btcPrice = btcPrice.currentPrice
+        if let btcModel = allCoins.first(where: {$0.id == "bitcoin"}){
+            self.btcPrice = btcModel.currentPrice
             print("btc price is: \(self.btcPrice)")
         }else{
             print("invalid btc price")
         }
+        
+//        if let btcPrice = allCoins.filter({$0.id == "bitcoin"}).first{
+//            self.btcPrice = btcPrice.currentPrice
+//            print("btc price is: \(self.btcPrice)")
+//        }else{
+//            print("invalid btc price")
+//        }
     }
 }

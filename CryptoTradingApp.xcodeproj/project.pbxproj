@@ -24,6 +24,8 @@
 		A871BB8728F03878006BC3CD /* VM_ExchangeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871BB8628F03878006BC3CD /* VM_ExchangeListView.swift */; };
 		A871BB8928F038D8006BC3CD /* ExchangeDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */; };
 		A872103828E7066A00282FFE /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A872103728E7066A00282FFE /* NetworkingManager.swift */; };
+		A8733AF528F42EED0089C9C7 /* MarketDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8733AF428F42EED0089C9C7 /* MarketDataModel.swift */; };
+		A8733AF728F437230089C9C7 /* MarketDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8733AF628F437230089C9C7 /* MarketDataService.swift */; };
 		A8750E8328E1CBBE00B02C1C /* VM_HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8750E8228E1CBBE00B02C1C /* VM_HomeView.swift */; };
 		A87909CC28EC621200FAD403 /* ExchangeRowNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87909CB28EC621200FAD403 /* ExchangeRowNameView.swift */; };
 		A87909CE28EC690B00FAD403 /* ExchangeRowStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87909CD28EC690B00FAD403 /* ExchangeRowStatisticsView.swift */; };
@@ -62,6 +64,8 @@
 		A871BB8628F03878006BC3CD /* VM_ExchangeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_ExchangeListView.swift; sourceTree = "<group>"; };
 		A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDataService.swift; sourceTree = "<group>"; };
 		A872103728E7066A00282FFE /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		A8733AF428F42EED0089C9C7 /* MarketDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataModel.swift; sourceTree = "<group>"; };
+		A8733AF628F437230089C9C7 /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
 		A8750E8228E1CBBE00B02C1C /* VM_HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_HomeView.swift; sourceTree = "<group>"; };
 		A87909CB28EC621200FAD403 /* ExchangeRowNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRowNameView.swift; sourceTree = "<group>"; };
 		A87909CD28EC690B00FAD403 /* ExchangeRowStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRowStatisticsView.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 				A8C536C128E876E1003425E2 /* CoinImageService.swift */,
 				A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */,
 				A8C04CB428F2F9F1009E9B9A /* ExchangeImageService.swift */,
+				A8733AF628F437230089C9C7 /* MarketDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				A85BC58D28DF1F2C007E5130 /* CoinModel.swift */,
 				A80EB4A628EB001E00931393 /* StatisticModel.swift */,
 				A8D2463928EEEB9F0019F07E /* ExchangeModel.swift */,
+				A8733AF428F42EED0089C9C7 /* MarketDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -388,10 +394,12 @@
 				A8C04CB528F2F9F1009E9B9A /* ExchangeImageService.swift in Sources */,
 				A8C536C028E874EC003425E2 /* CoinImageView.swift in Sources */,
 				A8C536C628E87BF5003425E2 /* VM_CoinImageView.swift in Sources */,
+				A8733AF728F437230089C9C7 /* MarketDataService.swift in Sources */,
 				A85BC59028DF2322007E5130 /* CoinRowView.swift in Sources */,
 				A8C536C228E876E1003425E2 /* CoinImageService.swift in Sources */,
 				A8C536BB28E8503C003425E2 /* WebView.swift in Sources */,
 				A8C536B928E84FD1003425E2 /* Coin360View.swift in Sources */,
+				A8733AF528F42EED0089C9C7 /* MarketDataModel.swift in Sources */,
 				A8C04CB728F30037009E9B9A /* ExchangeImageView.swift in Sources */,
 				A871BB8928F038D8006BC3CD /* ExchangeDataService.swift in Sources */,
 				A80EB4A728EB001E00931393 /* StatisticModel.swift in Sources */,

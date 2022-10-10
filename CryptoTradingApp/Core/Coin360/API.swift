@@ -14,5 +14,7 @@ class API{
     
     static let exchange_list_api: String = "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1"
     
+    static let market_data_api: String = "https://api.coingecko.com/api/v3/global"
+    
     
 }

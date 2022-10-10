@@ -12,11 +12,14 @@ import SwiftUI
 struct SearchBarView: View {
     
     @Binding var searchBarText: String
+    
+    let placeholderText: String
+    
     var body: some View {
         HStack(spacing: 0){
             Image(systemName: "magnifyingglass")
             
-            TextField("Bitcoin", text: $searchBarText)
+            TextField(placeholderText, text: $searchBarText)
                 .padding()
                 .padding(.trailing, 10)
                 .overlay(
@@ -47,7 +50,7 @@ struct SearchBarView: View {
 
 struct SearchBarView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBarView(searchBarText: .constant(""))
+        SearchBarView(searchBarText: .constant(""), placeholderText: "Bitcoin")
             .previewLayout(.sizeThatFits)
     }
 }

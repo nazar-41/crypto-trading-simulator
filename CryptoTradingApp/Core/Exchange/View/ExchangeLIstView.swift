@@ -13,7 +13,7 @@ struct ExchangeListView: View {
     @EnvironmentObject private var vm_homeView: VM_HomeView
     
     let columnWidth: CGFloat = 130 //UIScreen.main.bounds.width / 3
-
+    
     
     init(){
         //print("\n exchange list here: \(vm_exchangeListView.allExchanges) \n")
@@ -22,7 +22,7 @@ struct ExchangeListView: View {
  //   @State private var searchText: String = ""
     var body: some View {
         VStack {
-            SearchBarView(searchBarText: $vm_exchangeListView.searchBarText)
+            SearchBarView(searchBarText: $vm_exchangeListView.searchBarText, placeholderText: "Binance")
             
 
 

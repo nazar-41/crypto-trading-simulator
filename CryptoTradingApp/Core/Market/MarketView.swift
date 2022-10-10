@@ -15,7 +15,7 @@ struct MarketView: View {
     var body: some View {
         VStack{
             
-            SearchBarView(searchBarText: $vm_homeview.searchBarText)
+            SearchBarView(searchBarText: $vm_homeview.searchBarText, placeholderText: "Bitcoin")
             
             StatisticView(stat: DeveloperPreview.instance.stat, readMore: $readMore)
             
