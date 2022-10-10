@@ -69,27 +69,27 @@ struct MarketDataModel: Codable {
         case marketCapChangePercentage24HUsd = "market_cap_change_percentage_24h_usd"
     }
     
-    var marketCap: String{
+    var marketCap: Double{
         if let item = totalMarketCap.first(where: {$0.key == "usd"}){
-            return "\(item.value)"
+            return item.value
         }
         
-        return "0"
+        return 0
     }
     
-    var volume: String{
+    var volume: Double{
         if let item = totalVolume.first(where: {$0.key == "usd"}){
-            return "\(item.value)"
+            return item.value
         }
         
-        return "0"
+        return 0
     }
     
-    var bitcoinDominance: String{
+    var bitcoinDominance: Double{
         if let item = marketCapPercentage.first(where: {$0.key == "btc"}){
-            return item.value.asPercentString()
+            return item.value
         }
         
-        return "0%"
+        return 0
     }
 }

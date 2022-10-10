@@ -17,7 +17,10 @@ struct MarketView: View {
             
             SearchBarView(searchBarText: $vm_homeview.searchBarText, placeholderText: "Bitcoin")
             
-            StatisticView(stat: DeveloperPreview.instance.stat, readMore: $readMore)
+           // StatisticView(stat: DeveloperPreview.instance.stat, readMore: $readMore)
+            if let globalMarketData = vm_homeview.globalMarketData{
+                StatisticView(marketDataModel: globalMarketData, readMore: $readMore)
+            }
             
             listTitleView
             

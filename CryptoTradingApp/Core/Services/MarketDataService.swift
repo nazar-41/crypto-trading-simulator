@@ -30,7 +30,7 @@ class MarketDataService{
                 guard let self = self else{return}
                 
                 self.marketData = returnedModel.data
-                print("\n returned global market data")
+                print("\nreturned global market data")
                 self.marketDataSubscription?.cancel()
             })
         

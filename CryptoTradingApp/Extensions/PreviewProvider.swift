@@ -41,6 +41,13 @@ class DeveloperPreview{
                                  trustScoreRank: 1,
                                  tradeVolume24hBTC: 1342.42,
                                  tradeVolume24hBTCNormalized: 1342.42)
+    
+    let marketData = MarketDataModel(activeCryptocurrencies: 12313,
+                                     markets: 134,
+                                     totalMarketCap: ["usd" : 4141314121],
+                                     totalVolume: ["usd" : 24242422],
+                                     marketCapPercentage: ["bitcoin" : 12],
+                                     marketCapChangePercentage24HUsd: 12.42)
 
     
     let coin = CoinModel(
