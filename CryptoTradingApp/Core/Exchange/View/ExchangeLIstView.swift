@@ -12,17 +12,14 @@ struct ExchangeListView: View {
     @EnvironmentObject private var vm_exchangeListView: VM_ExchangeListView
     @EnvironmentObject private var vm_homeView: VM_HomeView
     
-    let columnWidth: CGFloat = 130 //UIScreen.main.bounds.width / 3
+    let columnWidth: CGFloat = 130
     
-    
-    init(){
-        //print("\n exchange list here: \(vm_exchangeListView.allExchanges) \n")
-    }
-    
- //   @State private var searchText: String = ""
     var body: some View {
         VStack {
             SearchBarView(searchBarText: $vm_exchangeListView.searchBarText, placeholderText: "Binance")
+                .padding(.bottom, 10)
+            
+            exchangeStatisticsHeader
             
 
             List{
@@ -51,25 +48,28 @@ struct ExchangeListView_Previews: PreviewProvider {
 extension ExchangeListView{
     @ViewBuilder private var exchangeStatisticsHeader: some View{
         
-        HStack{
-            Text("Exchange score")
-                .frame(width: 100)
-            
-            Text("Valume 24h")
-                .frame(width: columnWidth, alignment: .trailing)
-            
-            Text("Country")
-                .frame(width: columnWidth, alignment: .trailing)
-            
-            Text("Year established")
-                .frame(width: columnWidth, alignment: .trailing)
-            
-            Text("Website")
-                .frame(width: columnWidth, alignment: .trailing)
-            
-            
+        VStack{
+            HStack{
+                Text("Name")
+                    .frame(width: 120, alignment: .leading)
+                
+                Spacer()
+                
+                Text("Exchange Rank")
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.leading, 35)
+                    
+                Spacer()
+                
+                Text("Volume 24h")
+                    .frame(width: 120, alignment: .trailing)
+
+                
+            }
+            .padding(.horizontal, 7)
+            .foregroundColor(.gray)
+            .font(.caption)
         }
-        .frame(maxWidth: .infinity)
-        .font(.caption)
+
     }
 }

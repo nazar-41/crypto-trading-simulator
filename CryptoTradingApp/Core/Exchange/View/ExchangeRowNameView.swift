@@ -31,7 +31,6 @@ struct ExchangeRowView: View {
             
             volume24H(volume: exchange.tradeVolume24hUSD(btcPrice: btcPrice))
              
-            Spacer()
         }
         .font(.system(size: 14, weight: .medium))
     }
@@ -89,6 +88,7 @@ extension ExchangeRowView{
             }
             .frame(width: 40, height: 30)
         }
+        .frame(maxWidth: .infinity, alignment: .center)
     }
     
     @ViewBuilder private func volume24H(volume: Int)-> some View{
