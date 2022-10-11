@@ -20,6 +20,9 @@ struct ExchangeImageView: View {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
+                    .onAppear{
+                        print("\n image size: \(image.getSizeIn(.kilobyte))")
+                    }
             }else if vm_exchangeImageView.isLoading{
                 ProgressView()
             }else{

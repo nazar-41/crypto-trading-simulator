@@ -25,85 +25,15 @@ struct ExchangeListView: View {
             SearchBarView(searchBarText: $vm_exchangeListView.searchBarText, placeholderText: "Binance")
             
 
-
-            ScrollView{
-                HStack(spacing: 0){
-                    // exchange name, rank, image
-                    VStack{
-                        LazyVStack{
-                            ForEach(vm_exchangeListView.allExchanges){exchange in
-                                ExchangeRowNameView(exchange: exchange)
-                                    .frame(height: 55)
-                                    .padding(.trailing, 10)
-                                
-                                Divider()
-                            }
-                        }
-                    }
-                    .padding(.top, 25)
-
-                    VStack {
-                        ScrollView(.horizontal, showsIndicators: false){
-                            exchangeStatisticsHeader
-                            
-                            LazyVStack{
-                                
-                                ForEach(vm_exchangeListView.allExchanges){exchange in
-
-                                    ExchangeRowStatisticsView(testData: exchange, btcPrice: vm_homeView.btcPrice)
-                                        .frame(height: 55)
-                                    
-                                    Divider()
-                                }
-
-                                
-                             //   .padding(.top, 100)
-                            }
-                            
-                            Spacer()
-                            
-                        }
-                    }
+            List{
+                ForEach(vm_exchangeListView.allExchanges){exchange in
+                    ExchangeRowView(exchange: exchange, btcPrice: vm_homeView.btcPrice)
+                        .listRowInsets(EdgeInsets(top: 7, leading: 7, bottom: 7, trailing: 7))
                 }
             }
-            .padding()
+            .listStyle(.plain)
+            .padding(.bottom, 1)
 
-            
-//            ScrollView(showsIndicators: false){
-//               // ForEach(exchangeList){ exchange in
-//                    HStack(spacing: 0){
-//                        VStack(spacing: 0){
-//                            ForEach(vm_exchangeListView.allExchanges){exchange in
-//                                ExchangeRowNameView(name: exchange.name ?? "", image: nil, rank: exchange.trustScoreRank ?? 0)
-//                                    .frame(height: 55)
-//                                    .padding(.trailing, 10)
-//
-//
-//                                Divider()
-//                            }
-//                        }
-//                        .padding(.top, 25)
-//
-//
-//                        ScrollView(.horizontal, showsIndicators: false){
-//                            exchangeStatisticsHeader
-//
-//                            VStack(spacing: 0){
-//                                ForEach(vm_exchangeListView.allExchanges){exchange in
-//                                    ExchangeRowStatisticsView(testData: exchange, btcPrice: vm_homeView.btcPrice ?? 0)
-//                                        .frame(height: 55)
-//
-//                                    Divider()
-//                                }
-//                            }
-//                        }
-//                    }
-//                    .padding(.horizontal)
-//
-//                Divider()
-//               // }
-//            }
-//            .padding(.top)
         }
         .padding(.bottom, 1)
     }
