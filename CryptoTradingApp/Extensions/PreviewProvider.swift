@@ -47,7 +47,8 @@ class DeveloperPreview{
                                      totalMarketCap: ["usd" : 4141314121],
                                      totalVolume: ["usd" : 24242422],
                                      marketCapPercentage: ["bitcoin" : 12],
-                                     marketCapChangePercentage24HUsd: 12.42)
+                                     marketCapChangePercentage24HUsd: 12.42,
+                                     updatedAt: 1665396737)
 
     
     let coin = CoinModel(

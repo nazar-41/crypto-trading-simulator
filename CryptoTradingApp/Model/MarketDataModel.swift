@@ -6,6 +6,8 @@
 //
 
 
+import Foundation
+import SwiftUI
 //MARK: returned data
 /*
  
@@ -59,6 +61,7 @@ struct MarketDataModel: Codable {
     let markets: Int
     let totalMarketCap, totalVolume, marketCapPercentage: [String: Double]
     let marketCapChangePercentage24HUsd: Double
+    let updatedAt: Int
 
     enum CodingKeys: String, CodingKey {
         case activeCryptocurrencies = "active_cryptocurrencies"
@@ -67,6 +70,7 @@ struct MarketDataModel: Codable {
         case totalVolume = "total_volume"
         case marketCapPercentage = "market_cap_percentage"
         case marketCapChangePercentage24HUsd = "market_cap_change_percentage_24h_usd"
+        case updatedAt = "updated_at"
     }
     
     var marketCap: Double{
@@ -91,5 +95,20 @@ struct MarketDataModel: Codable {
         }
         
         return 0
+    }
+    
+    var date: String{
+        
+        // convert Int to TimeInterval (typealias for Double)
+        let timeInterval = TimeInterval(updatedAt)
+
+        // create Date from Double (NSTimeInterval)
+        let date = Date(timeIntervalSince1970: timeInterval)
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
+        
+        return formatter.string(from: date)
+        
     }
 }

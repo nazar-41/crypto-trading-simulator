@@ -152,6 +152,12 @@ extension StatisticView{
             .multilineTextAlignment(.leading)
             .foregroundColor(.black.opacity(0.8))
             
+            Text("Updated at: \(model.date)")
+           // Text("Updated 23 minutes ago")
+                .foregroundColor(.gray)
+                .font(.system(size: 12))
+                .frame(maxWidth: .infinity, alignment: .trailing)
+            
         }
         .font(.system(size: 13))
         .opacity(readMore ? 1 : 0)
