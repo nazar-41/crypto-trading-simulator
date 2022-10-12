@@ -21,7 +21,6 @@ struct ContentView: View {
             
             tabItemView(view: Coin360View(), label: "coin360", icon: "globe")
 
-
             tabItemView(view: Text("News"), label: "News", icon: "newspaper")
             
             tabItemView(view: Text("Profile"), label: "Profile", icon: "person")

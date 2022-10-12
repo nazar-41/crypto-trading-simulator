@@ -10,19 +10,83 @@ import SwiftUI
 struct TradeView: View {
     @StateObject private var vm_tradeview = VM_TradeView()
     
+    
+    
     var body: some View {
-        VStack{
+        VStack(spacing: 0){
             headerTradeTypeView
             
-            selectCoinView()
-            
-            coinName()
-            
-            liveMarketSimulator()
-
+            ScrollView(showsIndicators: false){
                 
+                selectCoinView()
+                
+                coinName()
+                
+                liveMarketSimulator()
+                
+                orderType
+                
+                stableOptimalPriceButton
+                
+                HStack(spacing: 20){
+                    VStack{
+                        HStack{
+                            TextField("Buy amount", text: $vm_tradeview.buyAmount)
+                                //.frame(width: 100)
+                                .keyboardType(.decimalPad)
+                            
+                            Text("BTC")
 
-            Spacer()
+                        }
+                        .foregroundColor(.black.opacity(0.7))
+                        .font(.caption)
+                        .padding(5)
+                        
+                        HStack(spacing: 0){
+                            amountPercentageButton(type: .buy, percentage: 25) {}
+                            amountPercentageButton(type: .buy, percentage: 50) {}
+                            amountPercentageButton(type: .buy, percentage: 75) {}
+                            amountPercentageButton(type: .buy, percentage: 100) {}
+
+                        }
+                        .foregroundColor(.gray.opacity(0.5))
+                        .font(.caption)
+
+                    }
+                    .border(.gray.opacity(0.2))
+                    
+                    VStack{
+                        HStack{
+                            TextField("Sell amount", text: $vm_tradeview.buyAmount)
+//                                .frame(width: 100)
+                                .keyboardType(.decimalPad)
+                            
+                            Text("BTC")
+
+                        }
+                        .foregroundColor(.black.opacity(0.7))
+                        .font(.caption)
+                        .padding(5)
+                        
+                        HStack(spacing: 0){
+                            
+                            amountPercentageButton(type: .sell, percentage: 25) {}
+                            amountPercentageButton(type: .sell, percentage: 50) {}
+                            amountPercentageButton(type: .sell, percentage: 75) {}
+                            amountPercentageButton(type: .sell, percentage: 100) {}
+
+
+                        }
+                        .foregroundColor(.gray.opacity(0.5))
+                        .font(.caption)
+
+                    }
+                    .border(.gray.opacity(0.2))
+                }
+                .padding(.horizontal, 10)
+                
+                
+            }
         }
         .edgesIgnoringSafeArea(.top)
       //  .padding(.horizontal, 10)
@@ -95,7 +159,8 @@ extension TradeView{
             
 
         }
-        .padding(.horizontal, 10)
+        .padding(10)
+        
     }
     
     //MARK: coin name
@@ -110,7 +175,6 @@ extension TradeView{
         }
 
     }
-    
     
     //MARK: active market simulator
     @ViewBuilder private func liveMarketSimulator()-> some View{
@@ -215,5 +279,59 @@ extension TradeView{
         }
 
     }
+    
+    //MARK: order type view
+    @ViewBuilder private var orderType: some View{
+        HStack{
+            Image(systemName: "questionmark.circle")
+            
+            Text("Market order")
+            
+            Spacer()
+            
+            Image(systemName: "arrowtriangle.down.fill")
+                .font(.system(size: 8))
+                .foregroundColor(.gray)
+        }
+        .font(.system(size: 12, weight: .regular))
+        .padding(4)
+        .border(.gray.opacity(0.5), width: 0.5)
+        .padding(.horizontal, 10)
+    }
+    
+    //MARK: fake price buttons (stable optimal price)
+    @ViewBuilder private var stableOptimalPriceButton: some View{
+        HStack(spacing: 20){
+            ZStack{
+                Color.gray.opacity(0.1)
+                Text("Optimal price")
+                    .font(.caption2)
+                    .foregroundColor(.gray)
+            }
+            .frame(height: 30)
+            
+            ZStack{
+                Color.gray.opacity(0.1)
+                Text("Optimal price")
+                    .font(.caption2)
+                    .foregroundColor(.gray)
+            }
+            .frame(height: 30)
+        }
+        .padding(.horizontal, 10)
+    }
+    
+    //MARK: amount percentage button
+    @ViewBuilder private func amountPercentageButton(type: BuySell, percentage: Int, action: @escaping () -> Void)-> some View{
+        Button {
+            action()
+        } label: {
+            Text("\(percentage)%")
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .padding(.vertical, 5)
+        .border(.gray.opacity(0.3))
+    }
+    
     
 }

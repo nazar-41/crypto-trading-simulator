@@ -25,6 +25,7 @@
 		A85BC59C28DF2E73007E5130 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85BC59B28DF2E73007E5130 /* HomeView.swift */; };
 		A85D114528F6DF6B00C64F2C /* TradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D114428F6DF6B00C64F2C /* TradeView.swift */; };
 		A85D114728F6E23100C64F2C /* VM_TradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D114628F6E23100C64F2C /* VM_TradeView.swift */; };
+		A85D114A28F70A1300C64F2C /* BuySell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D114928F70A1300C64F2C /* BuySell.swift */; };
 		A871BB8728F03878006BC3CD /* VM_ExchangeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871BB8628F03878006BC3CD /* VM_ExchangeListView.swift */; };
 		A871BB8928F038D8006BC3CD /* ExchangeDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */; };
 		A872103828E7066A00282FFE /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A872103728E7066A00282FFE /* NetworkingManager.swift */; };
@@ -69,6 +70,7 @@
 		A85BC59B28DF2E73007E5130 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A85D114428F6DF6B00C64F2C /* TradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeView.swift; sourceTree = "<group>"; };
 		A85D114628F6E23100C64F2C /* VM_TradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_TradeView.swift; sourceTree = "<group>"; };
+		A85D114928F70A1300C64F2C /* BuySell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySell.swift; sourceTree = "<group>"; };
 		A871BB8628F03878006BC3CD /* VM_ExchangeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_ExchangeListView.swift; sourceTree = "<group>"; };
 		A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDataService.swift; sourceTree = "<group>"; };
 		A872103728E7066A00282FFE /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		A85BC59428DF29C3007E5130 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A85D114828F709F900C64F2C /* Enums */,
 				A85D114128F6DF4A00C64F2C /* Trade */,
 				A87909C828EC61E600FAD403 /* Exchange */,
 				A8C536B728E84FB5003425E2 /* Coin360 */,
@@ -285,6 +288,14 @@
 				A85D114628F6E23100C64F2C /* VM_TradeView.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A85D114828F709F900C64F2C /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				A85D114928F70A1300C64F2C /* BuySell.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		A872103628E7062A00282FFE /* Utilities */ = {
@@ -444,6 +455,7 @@
 				A85BC57F28DF1457007E5130 /* ContentView.swift in Sources */,
 				A80EB4A928EB017E00931393 /* StatisticView.swift in Sources */,
 				A8CF5F6F28E9763800FF7586 /* LocalFileManger.swift in Sources */,
+				A85D114A28F70A1300C64F2C /* BuySell.swift in Sources */,
 				A85BC58E28DF1F2C007E5130 /* CoinModel.swift in Sources */,
 				A8CF5F7A28E9B46300FF7586 /* UIApplication.swift in Sources */,
 				A85D114528F6DF6B00C64F2C /* TradeView.swift in Sources */,
