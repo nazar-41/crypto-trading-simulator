@@ -23,6 +23,8 @@
 		A85BC59328DF2358007E5130 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85BC59228DF2358007E5130 /* PreviewProvider.swift */; };
 		A85BC59A28DF2A49007E5130 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85BC59928DF2A49007E5130 /* Double.swift */; };
 		A85BC59C28DF2E73007E5130 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85BC59B28DF2E73007E5130 /* HomeView.swift */; };
+		A85D114528F6DF6B00C64F2C /* TradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D114428F6DF6B00C64F2C /* TradeView.swift */; };
+		A85D114728F6E23100C64F2C /* VM_TradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D114628F6E23100C64F2C /* VM_TradeView.swift */; };
 		A871BB8728F03878006BC3CD /* VM_ExchangeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871BB8628F03878006BC3CD /* VM_ExchangeListView.swift */; };
 		A871BB8928F038D8006BC3CD /* ExchangeDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */; };
 		A872103828E7066A00282FFE /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A872103728E7066A00282FFE /* NetworkingManager.swift */; };
@@ -65,6 +67,8 @@
 		A85BC59228DF2358007E5130 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		A85BC59928DF2A49007E5130 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		A85BC59B28DF2E73007E5130 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A85D114428F6DF6B00C64F2C /* TradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeView.swift; sourceTree = "<group>"; };
+		A85D114628F6E23100C64F2C /* VM_TradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_TradeView.swift; sourceTree = "<group>"; };
 		A871BB8628F03878006BC3CD /* VM_ExchangeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_ExchangeListView.swift; sourceTree = "<group>"; };
 		A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDataService.swift; sourceTree = "<group>"; };
 		A872103728E7066A00282FFE /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 		A85BC59428DF29C3007E5130 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A85D114128F6DF4A00C64F2C /* Trade */,
 				A87909C828EC61E600FAD403 /* Exchange */,
 				A8C536B728E84FB5003425E2 /* Coin360 */,
 				A848284028E5B7C200405907 /* Creator */,
@@ -253,6 +258,31 @@
 			isa = PBXGroup;
 			children = (
 				A8750E8228E1CBBE00B02C1C /* VM_HomeView.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A85D114128F6DF4A00C64F2C /* Trade */ = {
+			isa = PBXGroup;
+			children = (
+				A85D114328F6DF5900C64F2C /* ViewModel */,
+				A85D114228F6DF5400C64F2C /* View */,
+			);
+			path = Trade;
+			sourceTree = "<group>";
+		};
+		A85D114228F6DF5400C64F2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A85D114428F6DF6B00C64F2C /* TradeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A85D114328F6DF5900C64F2C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A85D114628F6E23100C64F2C /* VM_TradeView.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -393,6 +423,7 @@
 			files = (
 				A8CF5F7328E9AC9400FF7586 /* SearchBarView.swift in Sources */,
 				A85BC59C28DF2E73007E5130 /* HomeView.swift in Sources */,
+				A85D114728F6E23100C64F2C /* VM_TradeView.swift in Sources */,
 				A85BC59328DF2358007E5130 /* PreviewProvider.swift in Sources */,
 				A848284428E5B7C200405907 /* CreatorView.swift in Sources */,
 				A8750E8328E1CBBE00B02C1C /* VM_HomeView.swift in Sources */,
@@ -415,6 +446,7 @@
 				A8CF5F6F28E9763800FF7586 /* LocalFileManger.swift in Sources */,
 				A85BC58E28DF1F2C007E5130 /* CoinModel.swift in Sources */,
 				A8CF5F7A28E9B46300FF7586 /* UIApplication.swift in Sources */,
+				A85D114528F6DF6B00C64F2C /* TradeView.swift in Sources */,
 				A8D2463A28EEEB9F0019F07E /* ExchangeModel.swift in Sources */,
 				A848283F28E5B7AE00405907 /* MarketView.swift in Sources */,
 				A871BB8728F03878006BC3CD /* VM_ExchangeListView.swift in Sources */,
@@ -562,6 +594,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -590,6 +623,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

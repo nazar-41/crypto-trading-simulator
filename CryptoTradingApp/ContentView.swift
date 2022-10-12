@@ -15,7 +15,7 @@ struct ContentView: View {
             
             tabItemView(view: MarketView(), label: "Market", icon: "chart.line.uptrend.xyaxis")
             
-            tabItemView(view: Text("Trade"), label: "Trade", icon: "bitcoinsign")
+            tabItemView(view: TradeView(), label: "Trade", icon: "bitcoinsign")
                         
             tabItemView(view: ExchangeListView(), label: "Exchanges", icon: "e.circle.fill")
             
