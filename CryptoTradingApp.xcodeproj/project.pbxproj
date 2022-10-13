@@ -25,7 +25,7 @@
 		A85BC59C28DF2E73007E5130 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85BC59B28DF2E73007E5130 /* HomeView.swift */; };
 		A85D114528F6DF6B00C64F2C /* TradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D114428F6DF6B00C64F2C /* TradeView.swift */; };
 		A85D114728F6E23100C64F2C /* VM_TradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D114628F6E23100C64F2C /* VM_TradeView.swift */; };
-		A85D114A28F70A1300C64F2C /* BuySell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D114928F70A1300C64F2C /* BuySell.swift */; };
+		A85D114A28F70A1300C64F2C /* BuySellEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D114928F70A1300C64F2C /* BuySellEnum.swift */; };
 		A871BB8728F03878006BC3CD /* VM_ExchangeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871BB8628F03878006BC3CD /* VM_ExchangeListView.swift */; };
 		A871BB8928F038D8006BC3CD /* ExchangeDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */; };
 		A872103828E7066A00282FFE /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A872103728E7066A00282FFE /* NetworkingManager.swift */; };
@@ -34,6 +34,8 @@
 		A8750E8328E1CBBE00B02C1C /* VM_HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8750E8228E1CBBE00B02C1C /* VM_HomeView.swift */; };
 		A87909CC28EC621200FAD403 /* ExchangeRowNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87909CB28EC621200FAD403 /* ExchangeRowNameView.swift */; };
 		A87909CE28EC690B00FAD403 /* ExchangeRowStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87909CD28EC690B00FAD403 /* ExchangeRowStatisticsView.swift */; };
+		A883AF9828F8253B00C542D6 /* SelectTradeCoinSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A883AF9728F8253B00C542D6 /* SelectTradeCoinSheet.swift */; };
+		A883AF9A28F82A3E00C542D6 /* VM_SelectTradeCoinSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A883AF9928F82A3E00C542D6 /* VM_SelectTradeCoinSheet.swift */; };
 		A8C04CB528F2F9F1009E9B9A /* ExchangeImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C04CB428F2F9F1009E9B9A /* ExchangeImageService.swift */; };
 		A8C04CB728F30037009E9B9A /* ExchangeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C04CB628F30037009E9B9A /* ExchangeImageView.swift */; };
 		A8C04CB928F30042009E9B9A /* VM_ExchangeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C04CB828F30042009E9B9A /* VM_ExchangeImageView.swift */; };
@@ -70,7 +72,7 @@
 		A85BC59B28DF2E73007E5130 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A85D114428F6DF6B00C64F2C /* TradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeView.swift; sourceTree = "<group>"; };
 		A85D114628F6E23100C64F2C /* VM_TradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_TradeView.swift; sourceTree = "<group>"; };
-		A85D114928F70A1300C64F2C /* BuySell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySell.swift; sourceTree = "<group>"; };
+		A85D114928F70A1300C64F2C /* BuySellEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySellEnum.swift; sourceTree = "<group>"; };
 		A871BB8628F03878006BC3CD /* VM_ExchangeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_ExchangeListView.swift; sourceTree = "<group>"; };
 		A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDataService.swift; sourceTree = "<group>"; };
 		A872103728E7066A00282FFE /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -79,6 +81,8 @@
 		A8750E8228E1CBBE00B02C1C /* VM_HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_HomeView.swift; sourceTree = "<group>"; };
 		A87909CB28EC621200FAD403 /* ExchangeRowNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRowNameView.swift; sourceTree = "<group>"; };
 		A87909CD28EC690B00FAD403 /* ExchangeRowStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRowStatisticsView.swift; sourceTree = "<group>"; };
+		A883AF9728F8253B00C542D6 /* SelectTradeCoinSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTradeCoinSheet.swift; sourceTree = "<group>"; };
+		A883AF9928F82A3E00C542D6 /* VM_SelectTradeCoinSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_SelectTradeCoinSheet.swift; sourceTree = "<group>"; };
 		A8C04CB428F2F9F1009E9B9A /* ExchangeImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeImageService.swift; sourceTree = "<group>"; };
 		A8C04CB628F30037009E9B9A /* ExchangeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeImageView.swift; sourceTree = "<group>"; };
 		A8C04CB828F30042009E9B9A /* VM_ExchangeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_ExchangeImageView.swift; sourceTree = "<group>"; };
@@ -278,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				A85D114428F6DF6B00C64F2C /* TradeView.swift */,
+				A883AF9728F8253B00C542D6 /* SelectTradeCoinSheet.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				A85D114628F6E23100C64F2C /* VM_TradeView.swift */,
+				A883AF9928F82A3E00C542D6 /* VM_SelectTradeCoinSheet.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -293,7 +299,7 @@
 		A85D114828F709F900C64F2C /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				A85D114928F70A1300C64F2C /* BuySell.swift */,
+				A85D114928F70A1300C64F2C /* BuySellEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 				A8C04CB528F2F9F1009E9B9A /* ExchangeImageService.swift in Sources */,
 				A8C536C028E874EC003425E2 /* CoinImageView.swift in Sources */,
 				A8C536C628E87BF5003425E2 /* VM_CoinImageView.swift in Sources */,
+				A883AF9A28F82A3E00C542D6 /* VM_SelectTradeCoinSheet.swift in Sources */,
 				A8733AF728F437230089C9C7 /* MarketDataService.swift in Sources */,
 				A85BC59028DF2322007E5130 /* CoinRowView.swift in Sources */,
 				A8C536C228E876E1003425E2 /* CoinImageService.swift in Sources */,
@@ -450,12 +457,13 @@
 				A8C536B928E84FD1003425E2 /* Coin360View.swift in Sources */,
 				A8733AF528F42EED0089C9C7 /* MarketDataModel.swift in Sources */,
 				A8C04CB728F30037009E9B9A /* ExchangeImageView.swift in Sources */,
+				A883AF9828F8253B00C542D6 /* SelectTradeCoinSheet.swift in Sources */,
 				A871BB8928F038D8006BC3CD /* ExchangeDataService.swift in Sources */,
 				A80EB4A728EB001E00931393 /* StatisticModel.swift in Sources */,
 				A85BC57F28DF1457007E5130 /* ContentView.swift in Sources */,
 				A80EB4A928EB017E00931393 /* StatisticView.swift in Sources */,
 				A8CF5F6F28E9763800FF7586 /* LocalFileManger.swift in Sources */,
-				A85D114A28F70A1300C64F2C /* BuySell.swift in Sources */,
+				A85D114A28F70A1300C64F2C /* BuySellEnum.swift in Sources */,
 				A85BC58E28DF1F2C007E5130 /* CoinModel.swift in Sources */,
 				A8CF5F7A28E9B46300FF7586 /* UIApplication.swift in Sources */,
 				A85D114528F6DF6B00C64F2C /* TradeView.swift in Sources */,
@@ -606,7 +614,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UIUserInterfaceStyle = light;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -635,7 +643,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UIUserInterfaceStyle = light;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

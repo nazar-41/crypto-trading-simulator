@@ -10,6 +10,8 @@ import SwiftUI
 struct TradeView: View {
     @StateObject private var vm_tradeview = VM_TradeView()
     
+    @EnvironmentObject private var vm_homeView: VM_HomeView
+    
     
     
     var body: some View {
@@ -35,6 +37,10 @@ struct TradeView: View {
             }
         }
         .edgesIgnoringSafeArea(.top)
+        .sheet(isPresented: $vm_tradeview.showCoinList) {
+            SelectTradeCoinSheet()
+                .environmentObject(vm_homeView)
+        }
  
     }
     
@@ -43,6 +49,7 @@ struct TradeView: View {
 struct TradeView_Previews: PreviewProvider {
     static var previews: some View {
         TradeView()
+            .environmentObject(VM_HomeView())
     }
 }
 
@@ -269,7 +276,7 @@ extension TradeView{
     }
     
     //MARK: amount percentage button
-    @ViewBuilder private func amountPercentageButton(type: BuySell, percentage: Int, action: @escaping () -> Void)-> some View{
+    @ViewBuilder private func amountPercentageButton(type: BuySellEnum, percentage: Int, action: @escaping () -> Void)-> some View{
         Button {
             action()
         } label: {

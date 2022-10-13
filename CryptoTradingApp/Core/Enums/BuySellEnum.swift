@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum BuySell{
+enum BuySellEnum{
     case buy
     case sell
 }
