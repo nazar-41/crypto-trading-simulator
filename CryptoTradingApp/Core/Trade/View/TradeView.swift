@@ -12,6 +12,8 @@ struct TradeView: View {
     
     @EnvironmentObject private var vm_homeView: VM_HomeView
     
+    @State private var showCoinList: Bool = false
+
     
     
     var body: some View {
@@ -37,7 +39,7 @@ struct TradeView: View {
             }
         }
         .edgesIgnoringSafeArea(.top)
-        .sheet(isPresented: $vm_tradeview.showCoinList) {
+        .sheet(isPresented: $showCoinList) {
             SelectTradeCoinSheet()
                 .environmentObject(vm_homeView)
         }
@@ -77,7 +79,7 @@ extension TradeView{
             
             
             Button {
-                vm_tradeview.showCoinList = true
+                showCoinList = true
             } label: {
                 Text("BTC/USDT")
                     .font(.system(size: 20, weight: .medium))
