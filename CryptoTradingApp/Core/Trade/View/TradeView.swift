@@ -429,6 +429,7 @@ extension TradeView{
             
         }
         .padding(.horizontal, 10)
+        .padding(.top)
         
     }
     

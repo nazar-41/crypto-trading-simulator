@@ -73,7 +73,7 @@ class VM_HomeView: ObservableObject{
     private func getBtcPrice(){
         if let btcModel = allCoins.first(where: {$0.id == "bitcoin"}){
             self.btcPrice = btcModel.currentPrice
-            print("btc price is: \(self.btcPrice)")
+            print("btc price is: \(String(describing: self.btcPrice))")
         }else{
             print("invalid btc price")
         }
