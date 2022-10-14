@@ -19,14 +19,14 @@ struct ContentView: View {
                         
             tabItemView(view: ExchangeListView(), label: "Exchanges", icon: "e.circle.fill")
             
-            tabItemView(view: Coin360View(), label: "coin360", icon: "globe")
-
-            tabItemView(view: Text("News"), label: "News", icon: "newspaper")
-            
-            tabItemView(view: Text("Profile"), label: "Profile", icon: "person")
-            
-            tabItemView(view: CreatorView(), label: "Creator", icon: "applelogo")
-            
+//            tabItemView(view: Coin360View(), label: "coin360", icon: "globe")
+//
+//            tabItemView(view: Text("News"), label: "News", icon: "newspaper")
+//
+//            tabItemView(view: Text("Profile"), label: "Profile", icon: "person")
+//
+//            tabItemView(view: CreatorView(), label: "Creator", icon: "applelogo")
+//
 
         
         }

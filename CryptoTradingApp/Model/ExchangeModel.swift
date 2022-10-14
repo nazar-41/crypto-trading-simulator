@@ -34,11 +34,17 @@ struct ExchangeModel: Identifiable, Codable{
     }
     
     
-    func tradeVolume24hUSD(btcPrice: Double?)-> Int{
+    func tradeVolume24hUSD(btcModel: CoinModel?)-> Int{
         
-        guard let btcPrice = btcPrice else{
+//        guard let btcPrice = btcModel?.currentPrice else{
+//            return 0
+//        }
+        
+        guard let model = btcModel else{
             return 0
         }
+        
+        let btcPrice = model.currentPrice
         
         return Int(btcPrice * (tradeVolume24hBTC ?? 0))
 

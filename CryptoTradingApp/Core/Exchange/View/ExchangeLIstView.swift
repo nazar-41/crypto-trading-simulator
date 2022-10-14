@@ -24,7 +24,7 @@ struct ExchangeListView: View {
 
             List{
                 ForEach(vm_exchangeListView.allExchanges){exchange in
-                    ExchangeRowView(exchange: exchange, btcPrice: vm_homeView.btcPrice)
+                    ExchangeRowView(exchange: exchange, btcModel: vm_homeView.btcModel)
                         .listRowInsets(EdgeInsets(top: 7, leading: 7, bottom: 7, trailing: 7))
                 }
             }

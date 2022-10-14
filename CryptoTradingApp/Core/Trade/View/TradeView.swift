@@ -298,7 +298,7 @@ extension TradeView{
                         //.frame(width: 100)
                             .keyboardType(.decimalPad)
                         
-                        Text("BTC")
+                        Text("USDT")
                         
                     }
                     .foregroundColor(.black.opacity(0.7))
@@ -341,7 +341,7 @@ extension TradeView{
                         //                                .frame(width: 100)
                             .keyboardType(.decimalPad)
                         
-                        Text("BTC")
+                        Text("USDT")
                         
                     }
                     .foregroundColor(.black.opacity(0.7))

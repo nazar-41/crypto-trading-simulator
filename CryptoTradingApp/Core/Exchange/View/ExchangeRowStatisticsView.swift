@@ -11,7 +11,7 @@ struct ExchangeRowStatisticsView: View {
     let columnWidth: CGFloat = 130
     
     let testData: ExchangeModel
-    let btcPrice: Double?
+    let btcModel: CoinModel?
     
     var body: some View {
             VStack(alignment: .trailing){
@@ -21,7 +21,8 @@ struct ExchangeRowStatisticsView: View {
                     
                     //volume24HColumn(volume: testData.tradeVolume24hBTCNormalized ?? 0, percentage: 0)
                     
-                    volume24HColumn(volume: testData.tradeVolume24hUSD(btcPrice: btcPrice))
+                   // volume24HColumn(volume: testData.tradeVolume24hUSD(btcPrice: btcPrice))
+                    volume24HColumn(volume: testData.tradeVolume24hUSD(btcModel: btcModel))
 
                     
                     countryColumn(country: testData.country)
@@ -40,7 +41,7 @@ struct ExchangeRowStatisticsView: View {
 
 struct ExchangeRowStatisticsView_Previews: PreviewProvider {
     static var previews: some View {
-        ExchangeRowStatisticsView(testData: dev.exchange, btcPrice: 13533.24)
+        ExchangeRowStatisticsView(testData: dev.exchange, btcModel: dev.coin)
     }
 }
 

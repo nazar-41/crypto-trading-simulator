@@ -13,7 +13,7 @@ struct ExchangeRowView: View {
     
     let columnWidth: CGFloat = 120
     
-    let btcPrice: Double?
+    let btcModel: CoinModel?
     
     var body: some View {
         HStack{
@@ -29,7 +29,9 @@ struct ExchangeRowView: View {
             
             Spacer()
             
-            volume24H(volume: exchange.tradeVolume24hUSD(btcPrice: btcPrice))
+            
+            //volume24H(volume: exchange.tradeVolume24hUSD(btcPrice: btcModel.currentPrice))
+            volume24H(volume: exchange.tradeVolume24hUSD(btcModel: btcModel))
              
         }
         .font(.system(size: 14, weight: .medium))
@@ -38,7 +40,7 @@ struct ExchangeRowView: View {
 
 struct ExchangeRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ExchangeRowView(exchange: dev.exchange, btcPrice: dev.vm_homeview.btcPrice)
+        ExchangeRowView(exchange: dev.exchange, btcModel: dev.vm_homeview.btcModel)
     }
 }
 

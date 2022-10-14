@@ -15,7 +15,9 @@ class VM_HomeView: ObservableObject{
     
     @Published var searchBarText: String = ""
     
-    @Published var btcPrice: Double?
+   // @Published var btcPrice: Double?
+    
+    @Published var btcModel: CoinModel?
     
     @Published var globalMarketData: MarketDataModel?
     
@@ -72,8 +74,9 @@ class VM_HomeView: ObservableObject{
     
     private func getBtcPrice(){
         if let btcModel = allCoins.first(where: {$0.id == "bitcoin"}){
-            self.btcPrice = btcModel.currentPrice
-            print("btc price is: \(String(describing: self.btcPrice))")
+           // self.btcPrice = btcModel.currentPrice
+            self.btcModel = btcModel
+            print("btc price is: \(btcModel.currentPrice)")
         }else{
             print("invalid btc price")
         }
