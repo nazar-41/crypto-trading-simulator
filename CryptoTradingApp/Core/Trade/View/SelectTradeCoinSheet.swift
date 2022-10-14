@@ -13,6 +13,8 @@ struct SelectTradeCoinSheet: View {
     @StateObject private var vm_selectTradeCoinSheet = VM_SelectTradeCoinSheet()
     
     @Environment(\.presentationMode) var presentationMode
+    
+    @Binding var passedCoin: CoinModel?
 
     
     var body: some View {
@@ -30,7 +32,7 @@ struct SelectTradeCoinSheet: View {
 
 struct SelectTradeCoinSheet_Previews: PreviewProvider {
     static var previews: some View {
-        SelectTradeCoinSheet()
+        SelectTradeCoinSheet(passedCoin: .constant(dev.coin))
             .environmentObject(VM_HomeView())
     }
 }
@@ -55,6 +57,7 @@ extension SelectTradeCoinSheet{
                     .contentShape(Rectangle())
                     .onTapGesture {
                         print("selected coin: \(coin.id)")
+                        passedCoin = coin
                         presentationMode.wrappedValue.dismiss()
                     }
                 }

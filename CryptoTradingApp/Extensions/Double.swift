@@ -130,6 +130,42 @@ extension Double {
             return "\(sign)\(self)"
         }
     }
-
     
+    private var doubleFormatter3: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = .decimal
+        //formatter.locale = .current // <- default value
+        //formatter.currencyCode = "usd" // <- change currency
+        //formatter.currencySymbol = "$" // <- change currency symbol
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 3
+        return formatter
+    }
+
+    func asDoubleWith3Decimals()-> String{
+        let number = NSNumber(value: self)
+        
+        return doubleFormatter3.string(from: number) ?? "0.0"
+        
+    }
+    
+    private var doubleFormatter6: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = .decimal
+        //formatter.locale = .current // <- default value
+        //formatter.currencyCode = "usd" // <- change currency
+        //formatter.currencySymbol = "$" // <- change currency symbol
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 6
+        return formatter
+    }
+
+    func asDoubleWith6Decimals()-> String{
+        let number = NSNumber(value: self)
+        
+        return doubleFormatter6.string(from: number) ?? "0.0"
+        
+    }
 }

@@ -14,7 +14,7 @@ struct TradeView: View {
     
     @State private var showCoinList: Bool = false
 
-    var passedCoin: CoinModel?
+    @State var passedCoin: CoinModel?
     
     var tradeCoin: CoinModel{
         if let passedCoin = passedCoin{
@@ -58,13 +58,36 @@ struct TradeView: View {
             }
         }
         .edgesIgnoringSafeArea(.top)
+        .padding(.bottom, 1)
         .sheet(isPresented: $showCoinList) {
-            SelectTradeCoinSheet()
+            SelectTradeCoinSheet(passedCoin: $passedCoin)
                 .environmentObject(vm_homeView)
         }
  
     }
     
+    
+    private func buyAmount()-> String {
+        let buyAmount = vm_tradeview.buyAmount
+        
+        guard !buyAmount.isEmpty,
+              let quantity = Double(buyAmount) else {return ""}
+        
+ 
+        
+        return (quantity / tradeCoin.currentPrice).asDoubleWith6Decimals() + tradeCoin.symbol.uppercased()
+    }
+    
+    private func sellAmount()-> String {
+        let sellAmount = vm_tradeview.sellAmount
+        
+        guard !sellAmount.isEmpty,
+              let quantity = Double(sellAmount) else {return ""}
+        
+ 
+        
+        return (quantity / tradeCoin.currentPrice).asDoubleWith6Decimals() + tradeCoin.symbol.uppercased()
+    }
 }
 
 struct TradeView_Previews: PreviewProvider {
@@ -139,7 +162,7 @@ extension TradeView{
     //MARK: coin name
     @ViewBuilder private func coinName(coin: CoinModel)-> some View{
         VStack{
-            Text(coin.currentPrice.asCurrencyWith2Decimals())
+            Text(coin.currentPrice.asCurrencyWith6Decimals())
                 .foregroundColor(.green)
                 .font(.system(size: 25, weight: .bold))
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -172,7 +195,7 @@ extension TradeView{
                             .font(.caption)
                         
                         ForEach(1..<6){_ in
-                            Text("\(Float.random(in: 0..<2))")
+                            Text("\(Float.random(in: 0..<1))")
                                 .frame(alignment: .leading)
                         }
                     }
@@ -187,7 +210,7 @@ extension TradeView{
                         
                         ForEach(vm_tradeview.getRandomCoinPriceArray(price: coin.currentPrice).reversed(), id: \.self){price in
                             
-                            Text(String(format: "%.2f", price))
+                            Text(price.asDoubleWith3Decimals())
                                 .frame(alignment: .leading)
                         }
                     }
@@ -209,12 +232,16 @@ extension TradeView{
                         
                         ForEach(vm_tradeview.getRandomCoinPriceArray(price: coin.currentPrice), id: \.self){price in
                             
-                            Text(String(format: "%.2f", price))
+                            Text(price.asDoubleWith3Decimals())
                                 .frame(alignment: .leading)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.5)
                         }
                     }
                     
                     
+                    Spacer()
+
                     
                     
                     VStack(alignment: .trailing, spacing: 3){
@@ -224,14 +251,13 @@ extension TradeView{
                             .font(.caption)
                         
                         ForEach(1..<6){_ in
-                            Text("\(Float.random(in: 0..<2))")
+                            Text("\(Float.random(in: 0..<1))")
                                 .frame(alignment: .leading)
                         }
                     }
                     
-                    Spacer()
                     
-                    VStack(alignment: .trailing, spacing: 2){
+                    VStack(alignment: .trailing, spacing: 3){
                         
                         Text("Sell")
                             .foregroundColor(.gray)
@@ -307,98 +333,119 @@ extension TradeView{
     }
     
     @ViewBuilder private func enterAmount()-> some View{
-        HStack(spacing: 20){
-            VStack {
-                VStack{
-                    HStack{
-                        TextField("Buy amount", text: $vm_tradeview.buyAmount)
-                        //.frame(width: 100)
-                            .keyboardType(.decimalPad)
-                        
-                        Text("USDT")
-                        
-                    }
-                    .foregroundColor(.black.opacity(0.7))
-                    .font(.caption)
-                    .padding(5)
-                    .onTapGesture { UIApplication.shared.endEditing() }
-                    
-                    HStack(spacing: 0){
-                        amountPercentageButton(type: .buy, percentage: 25) {}
-                        amountPercentageButton(type: .buy, percentage: 50) {}
-                        amountPercentageButton(type: .buy, percentage: 75) {}
-                        amountPercentageButton(type: .buy, percentage: 100) {}
-                        
-                    }
-                    .foregroundColor(.gray.opacity(0.5))
-                    .font(.caption)
-                    
-                }
-                .border(.gray.opacity(0.2))
+        VStack {
+            HStack(spacing: 20){
+                Text(buyAmount())
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
                 
-                HStack(spacing: 0){
-                    Text("Available")
-                    Image(systemName: "questionmark.circle")
-                    
-                    Text("50,000.0000 USDT")
-                        .foregroundColor(.black)
-                        .padding(.leading, 5)
-                    
-                    
-                    Spacer()
-                }
-                .foregroundColor(.gray)
-                .font(.system(size: 10, weight: .regular))
+                 //   Spacer()
+                
+                
+                Text(sellAmount())
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+
             }
+            .font(.caption2)
+            .foregroundColor(.gray)
             
-            VStack {
-                VStack{
-                    HStack{
-                        TextField("Sell amount", text: $vm_tradeview.sellAmount)
-                        //                                .frame(width: 100)
-                            .keyboardType(.decimalPad)
+            HStack(spacing: 20){
+                VStack {
+                    VStack{
+                        HStack{
+                            TextField("Buy amount", text: $vm_tradeview.buyAmount)
+                            //.frame(width: 100)
+                                .keyboardType(.decimalPad)
+                            
+                            Text("USDT")
+                            
+                        }
+                        .foregroundColor(.black.opacity(0.7))
+                        .font(.caption)
+                        .padding(5)
+                        .onTapGesture { UIApplication.shared.endEditing() }
                         
-                        Text("USDT")
+                        HStack(spacing: 0){
+                            amountPercentageButton(type: .buy, percentage: 25) {}
+                            amountPercentageButton(type: .buy, percentage: 50) {}
+                            amountPercentageButton(type: .buy, percentage: 75) {}
+                            amountPercentageButton(type: .buy, percentage: 100) {}
+                            
+                        }
+                        .foregroundColor(.gray.opacity(0.5))
+                        .font(.caption)
                         
                     }
-                    .foregroundColor(.black.opacity(0.7))
-                    .font(.caption)
-                    .padding(5)
-                    .onTapGesture { UIApplication.shared.endEditing() }
+                    .border(.gray.opacity(0.2))
                     
                     HStack(spacing: 0){
+                        Text("Available")
+                        Image(systemName: "questionmark.circle")
                         
-                        amountPercentageButton(type: .sell, percentage: 25) {}
-                        amountPercentageButton(type: .sell, percentage: 50) {}
-                        amountPercentageButton(type: .sell, percentage: 75) {}
-                        amountPercentageButton(type: .sell, percentage: 100) {}
+                        Text("50,000.0000 USDT")
+                            .foregroundColor(.black)
+                            .padding(.leading, 5)
+                        
+                        
+                        Spacer()
+                    }
+                    .foregroundColor(.gray)
+                    .font(.system(size: 10, weight: .regular))
+                }
+                
+                VStack {
+                    VStack{
+                        HStack{
+                            TextField("Sell amount", text: $vm_tradeview.sellAmount)
+                            //                                .frame(width: 100)
+                                .keyboardType(.decimalPad)
+                            
+                            Text("USDT")
+                            
+                        }
+                        .foregroundColor(.black.opacity(0.7))
+                        .font(.caption)
+                        .padding(5)
+                        .onTapGesture { UIApplication.shared.endEditing() }
+                        
+                        HStack(spacing: 0){
+                            
+                            amountPercentageButton(type: .sell, percentage: 25) {}
+                            amountPercentageButton(type: .sell, percentage: 50) {}
+                            amountPercentageButton(type: .sell, percentage: 75) {}
+                            amountPercentageButton(type: .sell, percentage: 100) {}
+                            
+                            
+                        }
+                        .foregroundColor(.gray.opacity(0.5))
+                        .font(.caption)
                         
                         
                     }
-                    .foregroundColor(.gray.opacity(0.5))
-                    .font(.caption)
+                    .border(.gray.opacity(0.2))
                     
-                    
+                    HStack(spacing: 0){
+                        Text("Available")
+                        Image(systemName: "questionmark.circle")
+                        
+                        Text("0.00000000 USDT")
+                            .foregroundColor(.black)
+                            .padding(.leading, 5)
+                        
+                        
+                        Spacer()
+                    }
+                    .foregroundColor(.gray)
+                    .font(.system(size: 10, weight: .regular))
                 }
-                .border(.gray.opacity(0.2))
-                
-                HStack(spacing: 0){
-                    Text("Available")
-                    Image(systemName: "questionmark.circle")
-                    
-                    Text("0.00000000 USDT")
-                        .foregroundColor(.black)
-                        .padding(.leading, 5)
-                    
-                    
-                    Spacer()
-                }
-                .foregroundColor(.gray)
-                .font(.system(size: 10, weight: .regular))
             }
         }
         .padding(.horizontal, 10)
         .padding(.top, 20)
+
     }
     
     @ViewBuilder private func buySellButtons()-> some View{
