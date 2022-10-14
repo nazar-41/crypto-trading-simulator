@@ -17,4 +17,20 @@ class VM_TradeView: ObservableObject{
     
 
     
+    func getRandomCoinPriceArray(price: Double)-> [Double]{
+        var coinArr: [Double] = []
+        
+        let startPrice = price * 0.99
+        let endPrice = price * 1.01
+        
+        
+        for _ in 0..<5{
+            let rand = Double.random(in: startPrice...endPrice)
+            
+            coinArr.append(rand)
+        }
+        
+        return coinArr.sorted(by: {$0 > $1})
+    }
+    
 }

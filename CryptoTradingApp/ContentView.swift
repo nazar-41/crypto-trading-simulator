@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject private var vm_homeview: VM_HomeView
+    
     var body: some View {
         TabView{
 
@@ -15,7 +17,7 @@ struct ContentView: View {
             
             tabItemView(view: MarketView(), label: "Market", icon: "chart.line.uptrend.xyaxis")
             
-            tabItemView(view: TradeView(), label: "Trade", icon: "bitcoinsign")
+            tabItemView(view: TradeView(passedCoin: vm_homeview.btcModel), label: "Trade", icon: "bitcoinsign")
                         
             tabItemView(view: ExchangeListView(), label: "Exchanges", icon: "e.circle.fill")
             

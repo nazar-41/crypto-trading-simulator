@@ -14,6 +14,26 @@ struct TradeView: View {
     
     @State private var showCoinList: Bool = false
 
+    var passedCoin: CoinModel?
+    
+    var tradeCoin: CoinModel{
+        if let passedCoin = passedCoin{
+            return passedCoin
+        }else if let defaultCoin = vm_homeView.btcModel{
+            return defaultCoin
+        }
+        
+        return EmptyCoinModel.emptyCoinModel
+    }
+    
+//    init(){
+//        if let coin = coin{
+//            print("\n passed coin for trade is: \(coin.name) with current price: \(coin.currentPrice)")
+//        }else{
+//            coin = vm_homeView.btcModel
+//        }
+//    }
+    
     
     
     var body: some View {
@@ -22,11 +42,11 @@ struct TradeView: View {
             
             ScrollView(showsIndicators: false){
                 
-                selectCoinView()
+                selectCoinView(coin: tradeCoin)
                 
-                coinName()
+                coinName(coin: tradeCoin)
                 
-                liveMarketSimulator()
+                liveMarketSimulator(coin: tradeCoin)
                 
                 orderType
                 
@@ -35,7 +55,6 @@ struct TradeView: View {
                 enterAmount()
                 
                 buySellButtons()
-                
             }
         }
         .edgesIgnoringSafeArea(.top)
@@ -50,7 +69,7 @@ struct TradeView: View {
 
 struct TradeView_Previews: PreviewProvider {
     static var previews: some View {
-        TradeView()
+        TradeView(passedCoin: dev.vm_homeview.btcModel)
             .environmentObject(VM_HomeView())
     }
 }
@@ -72,7 +91,7 @@ extension TradeView{
     }
     
     //MARK: select coin view
-    @ViewBuilder private func selectCoinView()-> some View{
+    @ViewBuilder private func selectCoinView(coin: CoinModel)-> some View{
         HStack{
             Image(systemName: "list.triangle")
                 .font(.system(size: 20, weight: .medium))
@@ -81,13 +100,13 @@ extension TradeView{
             Button {
                 showCoinList = true
             } label: {
-                Text("BTC/USDT")
+                Text("\(coin.symbol.uppercased())/USDT")
                     .font(.system(size: 20, weight: .medium))
                     .foregroundColor(.black)
                 
             }
             
-            Text("+23%")
+            Text((coin.priceChangePercentage24H ?? 0).asPercentString())
                 .foregroundColor(.green)
                 .font(.subheadline)
             
@@ -118,9 +137,9 @@ extension TradeView{
     }
     
     //MARK: coin name
-    @ViewBuilder private func coinName()-> some View{
+    @ViewBuilder private func coinName(coin: CoinModel)-> some View{
         VStack{
-            Text("2342.24")
+            Text(coin.currentPrice.asCurrencyWith2Decimals())
                 .foregroundColor(.green)
                 .font(.system(size: 25, weight: .bold))
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -131,7 +150,7 @@ extension TradeView{
     }
     
     //MARK: active market simulator
-    @ViewBuilder private func liveMarketSimulator()-> some View{
+    @ViewBuilder private func liveMarketSimulator(coin: CoinModel)-> some View{
         VStack{
             HStack(spacing: 0){
                 HStack{
@@ -166,10 +185,9 @@ extension TradeView{
                             .foregroundColor(.gray)
                             .font(.caption)
                         
-                        ForEach(1..<6){_ in
-                            let random = String(format: "%.2f", Double.random(in: 19200..<20000)) //Double.random(in: 19200..<20000)
+                        ForEach(vm_tradeview.getRandomCoinPriceArray(price: coin.currentPrice).reversed(), id: \.self){price in
                             
-                            Text(random)
+                            Text(String(format: "%.2f", price))
                                 .frame(alignment: .leading)
                         }
                     }
@@ -189,10 +207,9 @@ extension TradeView{
                             .foregroundColor(.gray)
                             .font(.caption)
                         
-                        ForEach(1..<6){_ in
-                            let random = String(format: "%.2f", Double.random(in: 19200..<20000)) //Double.random(in: 19200..<20000)
+                        ForEach(vm_tradeview.getRandomCoinPriceArray(price: coin.currentPrice), id: \.self){price in
                             
-                            Text(random)
+                            Text(String(format: "%.2f", price))
                                 .frame(alignment: .leading)
                         }
                     }
