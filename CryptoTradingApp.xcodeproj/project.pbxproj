@@ -26,6 +26,8 @@
 		A85D114528F6DF6B00C64F2C /* TradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D114428F6DF6B00C64F2C /* TradeView.swift */; };
 		A85D114728F6E23100C64F2C /* VM_TradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D114628F6E23100C64F2C /* VM_TradeView.swift */; };
 		A85D114A28F70A1300C64F2C /* BuySellEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D114928F70A1300C64F2C /* BuySellEnum.swift */; };
+		A867B93628FAC96F00D4D50D /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A867B93428FAC96F00D4D50D /* PortfolioContainer.xcdatamodeld */; };
+		A867B93828FACA0200D4D50D /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A867B93728FACA0200D4D50D /* PortfolioDataService.swift */; };
 		A871BB8728F03878006BC3CD /* VM_ExchangeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871BB8628F03878006BC3CD /* VM_ExchangeListView.swift */; };
 		A871BB8928F038D8006BC3CD /* ExchangeDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */; };
 		A872103828E7066A00282FFE /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A872103728E7066A00282FFE /* NetworkingManager.swift */; };
@@ -74,6 +76,8 @@
 		A85D114428F6DF6B00C64F2C /* TradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeView.swift; sourceTree = "<group>"; };
 		A85D114628F6E23100C64F2C /* VM_TradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_TradeView.swift; sourceTree = "<group>"; };
 		A85D114928F70A1300C64F2C /* BuySellEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySellEnum.swift; sourceTree = "<group>"; };
+		A867B93528FAC96F00D4D50D /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
+		A867B93728FACA0200D4D50D /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
 		A871BB8628F03878006BC3CD /* VM_ExchangeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM_ExchangeListView.swift; sourceTree = "<group>"; };
 		A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDataService.swift; sourceTree = "<group>"; };
 		A872103728E7066A00282FFE /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				A871BB8828F038D8006BC3CD /* ExchangeDataService.swift */,
 				A8C04CB428F2F9F1009E9B9A /* ExchangeImageService.swift */,
 				A8733AF628F437230089C9C7 /* MarketDataService.swift */,
+				A867B93728FACA0200D4D50D /* PortfolioDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 		A85BC59428DF29C3007E5130 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A867B93328FAC95000D4D50D /* Database */,
 				A85D114828F709F900C64F2C /* Enums */,
 				A85D114128F6DF4A00C64F2C /* Trade */,
 				A87909C828EC61E600FAD403 /* Exchange */,
@@ -305,6 +311,14 @@
 				A85D114928F70A1300C64F2C /* BuySellEnum.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		A867B93328FAC95000D4D50D /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				A867B93428FAC96F00D4D50D /* PortfolioContainer.xcdatamodeld */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		A872103628E7062A00282FFE /* Utilities */ = {
@@ -447,6 +461,7 @@
 				A85BC59328DF2358007E5130 /* PreviewProvider.swift in Sources */,
 				A848284428E5B7C200405907 /* CreatorView.swift in Sources */,
 				A8750E8328E1CBBE00B02C1C /* VM_HomeView.swift in Sources */,
+				A867B93828FACA0200D4D50D /* PortfolioDataService.swift in Sources */,
 				A8C536BD28E85C0F003425E2 /* API.swift in Sources */,
 				A8342CB528F5A0AD00822343 /* UIImage.swift in Sources */,
 				A8C04CB528F2F9F1009E9B9A /* ExchangeImageService.swift in Sources */,
@@ -469,6 +484,7 @@
 				A8CF5F6F28E9763800FF7586 /* LocalFileManger.swift in Sources */,
 				A85D114A28F70A1300C64F2C /* BuySellEnum.swift in Sources */,
 				A85BC58E28DF1F2C007E5130 /* CoinModel.swift in Sources */,
+				A867B93628FAC96F00D4D50D /* PortfolioContainer.xcdatamodeld in Sources */,
 				A8CF5F7A28E9B46300FF7586 /* UIApplication.swift in Sources */,
 				A85D114528F6DF6B00C64F2C /* TradeView.swift in Sources */,
 				A8D2463A28EEEB9F0019F07E /* ExchangeModel.swift in Sources */,
@@ -683,6 +699,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A867B93428FAC96F00D4D50D /* PortfolioContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A867B93528FAC96F00D4D50D /* PortfolioContainer.xcdatamodel */,
+			);
+			currentVersion = A867B93528FAC96F00D4D50D /* PortfolioContainer.xcdatamodel */;
+			path = PortfolioContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A85BC57128DF1457007E5130 /* Project object */;
 }
