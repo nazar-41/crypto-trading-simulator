@@ -24,10 +24,12 @@ struct HomeView: View {
                     noHoldingsView
                 }else{
                     coinListView
+                    
                 }
-
+                
             }
             .padding(.horizontal, 10)
+          //  .padding(.bottom, 100)
         }
     }
 }
@@ -137,15 +139,16 @@ extension HomeView{
 
     //MARK: Coin list view
     @ViewBuilder private var coinListView: some View{
+        VStack {
             List{
-                ForEach(vm_homeview.portfolioCoins){coin in
-                    PortfolioCoinRowView(coin: coin)
-                        .listRowInsets(EdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0))
+                    ForEach(vm_homeview.portfolioCoins){coin in
+                        PortfolioCoinRowView(coin: coin)
+                            .listRowInsets(EdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0))
+                    }
                 }
-            }
-            .frame(height: UIScreen.main.bounds.height * 0.7)
-            .listStyle(.plain)
-            .padding(.bottom, 100)
+                .frame(height: UIScreen.main.bounds.height - 350)
+                .listStyle(.plain)
+        }
 
     }
     

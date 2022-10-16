@@ -53,6 +53,8 @@ class PortfolioDataService{
     }
     
     func buyCoin(coin: CoinModel, amount: Double){
+        guard amount > 0 else {return}
+        
         if let coinEntity = isCoinBoughtAlready(coinID: coin.id){
         //   guard let coinEntity = savedEntities.first(where: {($0.coinID ?? "") == coin.id}) else {return}
             
@@ -73,32 +75,62 @@ class PortfolioDataService{
         applyChanges()
     }
     
-    func sellCoin(entity: PortfolioEntity, amount: Double){
-        guard let coinID = entity.coinID,
-              let coinEntity = isCoinBoughtAlready(coinID: coinID) else {
-            
-            print("coin doesn't exist to sell")
-            return
-        }
-        
-        guard entity.amount >= amount else{
-            print("\n your selling amount is bigger than available")
-            return
-        }
-        
-        if amount > entity.amount{
-            print("\n your selling amount of \(entity.coinID) is bigger than available")
-        } else if amount == entity.amount{
-            removeCoin(entity: entity)
-            print("\n \(entity.coinID) selled 100%")
-        }
-//        else{
-//            updateCoin(entity: coinEntity, amount: amount)
+//    func sellCoin(entity: PortfolioEntity, amount: Double){
+//        guard amount > 0 else {return}
+//
+//        guard let coinID = entity.coinID,
+//              let coinEntity = isCoinBoughtAlready(coinID: coinID) else {
+//
+//            print("coin doesn't exist to sell")
+//            return
 //        }
-        updateCoin(entity: entity, amount: amount)
+//
+//        guard entity.amount >= amount else{
+//            print("\n your selling amount is bigger than available")
+//            return
+//        }
+//
+//        if amount > entity.amount{
+//            print("\n your selling amount of \(entity.coinID) is bigger than available")
+//        } else if amount == entity.amount{
+//            removeCoin(entity: entity)
+//            print("\n \(entity.coinID) selled 100%")
+//        }
+////        else{
+////            updateCoin(entity: coinEntity, amount: amount)
+////        }
+//        updateCoin(entity: entity, amount: amount)
+//
+//
+//    }
+    
+    func sellCoin(entity: PortfolioEntity, amount: Double){
+        guard amount > 0 else {
+            print("selling amount must be bigger than 0")
+            return
+        }
+        
+        guard let entity = isCoinBoughtAlready(coinID: entity.coinID ?? ".") else {
+            print("selling coin is not available in your portfolio")
+            return
+        }
+        
+//        guard entity.amount > amount else{
+//            print("\n your selling amount is bigger than available")
+//            return
+//        }
+        
+        if amount < entity.amount{
+            updateCoin(entity: entity, amount: entity.amount - amount)
+        }else if amount == entity.amount{
+            removeCoin(entity: entity)
+        }
+        
         
         
     }
+    
+    
     
     private func updateCoin(entity: PortfolioEntity, amount: Double){
         entity.amount = amount
