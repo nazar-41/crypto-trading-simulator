@@ -13,8 +13,11 @@ struct TradeView: View {
     @EnvironmentObject private var vm_homeView: VM_HomeView
     
     @State private var showCoinList: Bool = false
+    @State private var showAlert: Bool = false
 
     @State var passedCoin: CoinModel?
+    
+    @State private var alertInfo: AlertModel?
     
     var tradeCoin: CoinModel{
         if let passedCoin = passedCoin{
@@ -25,16 +28,6 @@ struct TradeView: View {
         
         return EmptyCoinModel.emptyCoinModel
     }
-    
-//    init(){
-//        if let coin = coin{
-//            print("\n passed coin for trade is: \(coin.name) with current price: \(coin.currentPrice)")
-//        }else{
-//            coin = vm_homeView.btcModel
-//        }
-//    }
-    
-    
     
     var body: some View {
         VStack(spacing: 0){
@@ -62,6 +55,9 @@ struct TradeView: View {
         .sheet(isPresented: $showCoinList) {
             SelectTradeCoinSheet(passedCoin: $passedCoin)
                 .environmentObject(vm_homeView)
+        }
+        .alert(item: $alertInfo) { info in
+            Alert(title: Text(info.title), message: Text(info.message), dismissButton: .default(Text("OK")))
         }
  
     }
@@ -458,6 +454,9 @@ extension TradeView{
                           !vm_tradeview.buyAmount.isEmpty else {return}
                     
                         vm_homeView.updatePortfolio(type: .buy, coin: coin, amount: Double(vm_tradeview.buyAmount) ?? 0)
+                    
+                    alertInfo = AlertModel(title: "Success 🎉", message: "Coin bought, check your portfolio")
+
                 } label: {
                     ZStack{
                         Color.green
@@ -471,6 +470,7 @@ extension TradeView{
                     }
                     .frame(height: 35)
                 }
+                .disabled(passedCoin == nil)
 
             }
             .frame(height: 35)
@@ -483,6 +483,9 @@ extension TradeView{
                           !vm_tradeview.sellAmount.isEmpty else {return}
                     
                         vm_homeView.updatePortfolio(type: .sell, coin: coin, amount: Double(vm_tradeview.sellAmount) ?? 0)
+                    
+                    alertInfo = AlertModel(title: "Success 🎉", message: "Coin sold, check your portfolio")
+                    
                 } label: {
                     ZStack{
                         Color.red
@@ -498,6 +501,7 @@ extension TradeView{
                     }
                     .frame(height: 35)
                 }
+                .disabled(passedCoin == nil)
 
             }
             .frame(height: 35)

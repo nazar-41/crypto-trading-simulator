@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A802059C28FBFF30001FCECB /* PortfolioCoinRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A802059B28FBFF30001FCECB /* PortfolioCoinRowView.swift */; };
+		A802059E28FC5701001FCECB /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A802059D28FC5701001FCECB /* AlertModel.swift */; };
 		A80EB4A728EB001E00931393 /* StatisticModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EB4A628EB001E00931393 /* StatisticModel.swift */; };
 		A80EB4A928EB017E00931393 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EB4A828EB017E00931393 /* StatisticView.swift */; };
 		A8342CB528F5A0AD00822343 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8342CB428F5A0AD00822343 /* UIImage.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		A802059B28FBFF30001FCECB /* PortfolioCoinRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCoinRowView.swift; sourceTree = "<group>"; };
+		A802059D28FC5701001FCECB /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		A80EB4A628EB001E00931393 /* StatisticModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticModel.swift; sourceTree = "<group>"; };
 		A80EB4A828EB017E00931393 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
 		A8342CB428F5A0AD00822343 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				A80EB4A628EB001E00931393 /* StatisticModel.swift */,
 				A8D2463928EEEB9F0019F07E /* ExchangeModel.swift */,
 				A8733AF428F42EED0089C9C7 /* MarketDataModel.swift */,
+				A802059D28FC5701001FCECB /* AlertModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				A848283F28E5B7AE00405907 /* MarketView.swift in Sources */,
 				A871BB8728F03878006BC3CD /* VM_ExchangeListView.swift in Sources */,
 				A8C04CB928F30042009E9B9A /* VM_ExchangeImageView.swift in Sources */,
+				A802059E28FC5701001FCECB /* AlertModel.swift in Sources */,
 				A87909CE28EC690B00FAD403 /* ExchangeRowStatisticsView.swift in Sources */,
 				A848283C28E5B5C100405907 /* CoinDataService.swift in Sources */,
 				A8342CB728F5A2A700822343 /* Integer.swift in Sources */,
