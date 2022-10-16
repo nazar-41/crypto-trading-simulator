@@ -36,5 +36,6 @@ class EmptyCoinModel{
                                                      lastUpdated: "-",
                                                      sparklineIn7D: nil,
                                                      priceChangePercentage24HInCurrency: 0,
-                                                     currentHoldings: 0)
+                                                     currentHoldings: 0,
+                                                     boughtPrice: 0)
 }

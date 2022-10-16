@@ -16,7 +16,7 @@ class PortfolioDataService{
     private let context: NSManagedObjectContext
     
     private let containerName: String = "PortfolioContainer"
-    private let entityName: String = "EntityName"
+    private let entityName: String = "PortfolioEntity"
     
     @Published var savedEntities: [PortfolioEntity] = []
     
@@ -29,10 +29,15 @@ class PortfolioDataService{
             if let error = error{
                 print("\n error loading core data: \(error)")
             }
+            
+            print("success creating creating container")
+
+            
+            self.getPortfolio()
+
         }
         
         
-        getPortfolio()
     }
     
     
@@ -41,14 +46,15 @@ class PortfolioDataService{
         
         do {
            savedEntities = try context.fetch(request)
+
         } catch {
             print("\n error fetching core data: \(error)")
         }
     }
     
-    private func buyCoin(coin: CoinModel, amount: Double){
-        if isCoinBoughtAlready(coinID: coin.id){
-           guard let coinEntity = savedEntities.first(where: {($0.coinID ?? "") == coin.id}) else {return}
+    func buyCoin(coin: CoinModel, amount: Double){
+        if let coinEntity = isCoinBoughtAlready(coinID: coin.id){
+        //   guard let coinEntity = savedEntities.first(where: {($0.coinID ?? "") == coin.id}) else {return}
             
             updateCoin(entity: coinEntity, amount: amount)
             
@@ -62,13 +68,35 @@ class PortfolioDataService{
             
         }
         
-                
         // if you wanna just update your database use saveData() function - this is for large database
         // or if you wanna reload all data again use applyChanges() function - this is for small database
         applyChanges()
     }
-   
-    private func sellCoin(entity: PortfolioEntity, amount: Double){
+    
+    func sellCoin(entity: PortfolioEntity, amount: Double){
+        guard let coinID = entity.coinID,
+              let coinEntity = isCoinBoughtAlready(coinID: coinID) else {
+            
+            print("coin doesn't exist to sell")
+            return
+        }
+        
+        guard entity.amount >= amount else{
+            print("\n your selling amount is bigger than available")
+            return
+        }
+        
+        if amount > entity.amount{
+            print("\n your selling amount of \(entity.coinID) is bigger than available")
+        } else if amount == entity.amount{
+            removeCoin(entity: entity)
+            print("\n \(entity.coinID) selled 100%")
+        }
+//        else{
+//            updateCoin(entity: coinEntity, amount: amount)
+//        }
+        updateCoin(entity: entity, amount: amount)
+        
         
     }
     
@@ -103,11 +131,11 @@ class PortfolioDataService{
         getPortfolio()
     }
     
-    private func isCoinBoughtAlready(coinID: String)-> Bool{
-        if savedEntities.first(where: {($0.coinID ?? "") == coinID}) != nil{
-            return true
+    private func isCoinBoughtAlready(coinID: String)-> PortfolioEntity?{
+        if let coinEntity = savedEntities.first(where: {$0.coinID == coinID}){
+            return coinEntity
         }
-        return false
+        return nil
     }
     
 }

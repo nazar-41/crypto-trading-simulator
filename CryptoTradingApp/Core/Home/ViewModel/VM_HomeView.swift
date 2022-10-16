@@ -23,6 +23,7 @@ class VM_HomeView: ObservableObject{
     
     private let coinDataService = CoinDataService()
     private let globalMarketDataService = MarketDataService()
+    private let portfolioDataService = PortfolioDataService()
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -39,6 +40,7 @@ class VM_HomeView: ObservableObject{
 //            }
 //            .store(in: &cancellables)
         
+        //MARK: Updated all coins
         $searchBarText
             .combineLatest(coinDataService.$allCoins)
             //pause for 0.5 seconds
@@ -52,13 +54,43 @@ class VM_HomeView: ObservableObject{
             }
             .store(in: &cancellables)
         
+        //MARK: updates all exchanges
         globalMarketDataService.$marketData
             .sink {[weak self] receivedMarketData in
                 guard let self = self else{return}
                 self.globalMarketData = receivedMarketData
             }
             .store(in: &cancellables)
+        
+        //MARK: updates portfolio coins
+        $allCoins
+            .combineLatest(portfolioDataService.$savedEntities)
+            .map{ (coinModels, portfolioEntities) -> [CoinModel] in
+                coinModels
+                    .compactMap { (coin) -> CoinModel? in
+                        guard let entity = portfolioEntities.first(where: {$0.coinID == coin.id}) else{ return nil}
+                        let test = coin.updateHoldings(amount: entity.amount, boughtPrice: entity.price)
+                        
+                        return test
+                    }
+            }
+            .sink {[weak self] returnedCoins in
+                guard let self = self else {return}
+                self.portfolioCoins = returnedCoins
+            }
+            .store(in: &cancellables)
     }
+    
+    
+    func updatePortfolio(type: BuySellEnum, coin: CoinModel, amount: Double){
+        if type == .buy{
+            portfolioDataService.buyCoin(coin: coin, amount: amount)
+        }else if type == .sell{
+            guard let entity = portfolioDataService.savedEntities.first(where: {$0.coinID == coin.id}) else {return}
+            portfolioDataService.sellCoin(entity: entity, amount: amount)
+        }
+    }
+    
     
     private func filterCoins(text: String, startingCoins: [CoinModel])-> [CoinModel]{
         guard !text.isEmpty else { return startingCoins}

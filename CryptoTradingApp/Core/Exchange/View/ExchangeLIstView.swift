@@ -58,6 +58,8 @@ extension ExchangeListView{
                 Text("Exchange Rank")
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.leading, 35)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
                     
                 Spacer()
                 

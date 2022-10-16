@@ -127,8 +127,8 @@ extension HomeView{
                         Image(systemName: "chevron.right")
                             .font(.system(size: 11, weight: .bold))
                     }
+                    
                     .padding(.vertical, 4)
-
                     Divider()
                 }
                 .padding(.trailing, 5)
@@ -137,15 +137,29 @@ extension HomeView{
 
     //MARK: Coin list view
     @ViewBuilder private var coinListView: some View{
-        ScrollView{
-            VStack{
+//        ScrollView{
+//            VStack{
+//                ForEach(vm_homeview.portfolioCoins){coin in
+//                    //CoinRowView(coin: coin, showHoldingsColumn: false)
+//                    //coinRowView(coin: coin, showHoldinsColumn: true)
+//                    PortfolioCoinRowView(coin: coin)
+//                }
+//            }
+//        }
+//        .frame(height: UIScreen.main.bounds.height * 0.7)
+        
+      //  VStack{
+            List{
                 ForEach(vm_homeview.portfolioCoins){coin in
-                    //CoinRowView(coin: coin, showHoldingsColumn: false)
-                    coinRowView(coin: coin, showHoldinsColumn: true)
+                    PortfolioCoinRowView(coin: coin)
+                        .listRowInsets(EdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0))
                 }
             }
-        }
-        .frame(height: UIScreen.main.bounds.height * 0.7)
+        //    .border(.red, width: 10)
+       // }
+                .frame(height: UIScreen.main.bounds.height * 0.7)
+                .listStyle(.plain)
+
     }
     
     //MARK: No holdings view

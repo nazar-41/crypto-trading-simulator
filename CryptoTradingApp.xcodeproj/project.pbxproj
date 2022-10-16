@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A802059C28FBFF30001FCECB /* PortfolioCoinRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A802059B28FBFF30001FCECB /* PortfolioCoinRowView.swift */; };
 		A80EB4A728EB001E00931393 /* StatisticModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EB4A628EB001E00931393 /* StatisticModel.swift */; };
 		A80EB4A928EB017E00931393 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EB4A828EB017E00931393 /* StatisticView.swift */; };
 		A8342CB528F5A0AD00822343 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8342CB428F5A0AD00822343 /* UIImage.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A802059B28FBFF30001FCECB /* PortfolioCoinRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCoinRowView.swift; sourceTree = "<group>"; };
 		A80EB4A628EB001E00931393 /* StatisticModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticModel.swift; sourceTree = "<group>"; };
 		A80EB4A828EB017E00931393 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
 		A8342CB428F5A0AD00822343 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			children = (
 				A85BC58F28DF2322007E5130 /* CoinRowView.swift */,
 				A85BC59B28DF2E73007E5130 /* HomeView.swift */,
+				A802059B28FBFF30001FCECB /* PortfolioCoinRowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				A872103828E7066A00282FFE /* NetworkingManager.swift in Sources */,
 				A85BC59A28DF2A49007E5130 /* Double.swift in Sources */,
 				A87909CC28EC621200FAD403 /* ExchangeRowNameView.swift in Sources */,
+				A802059C28FBFF30001FCECB /* PortfolioCoinRowView.swift in Sources */,
 				A85BC57D28DF1457007E5130 /* CryptoTradingAppApp.swift in Sources */,
 				A8D2463828EEEA7F0019F07E /* ExchangeListView.swift in Sources */,
 			);

@@ -130,7 +130,7 @@ extension TradeView{
             }
             
             Text((coin.priceChangePercentage24H ?? 0).asPercentString())
-                .foregroundColor(.green)
+                .foregroundColor(coin.priceChangePercentage24H ?? 0 > 0 ? .green : .red)
                 .font(.subheadline)
             
             
@@ -454,7 +454,9 @@ extension TradeView{
                 Color.green
                 
                 Button {
-                    //
+                    if let coin = passedCoin{
+                        vm_homeView.updatePortfolio(type: .buy, coin: coin, amount: Double(vm_tradeview.buyAmount) ?? 0)
+                    }
                 } label: {
                     ZStack{
                         Color.green
@@ -474,8 +476,9 @@ extension TradeView{
                 Color.green
                 
                 Button {
-                    //
-                } label: {
+                    if let coin = passedCoin{
+                        vm_homeView.updatePortfolio(type: .sell, coin: coin, amount: Double(vm_tradeview.buyAmount) ?? 0)
+                    }                } label: {
                     ZStack{
                         Color.red
                         Color.white.opacity(0.3)
