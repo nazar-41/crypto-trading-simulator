@@ -454,17 +454,20 @@ extension TradeView{
                 Color.green
                 
                 Button {
-                    if let coin = passedCoin{
+                    guard let coin = passedCoin,
+                          !vm_tradeview.buyAmount.isEmpty else {return}
+                    
                         vm_homeView.updatePortfolio(type: .buy, coin: coin, amount: Double(vm_tradeview.buyAmount) ?? 0)
-                    }
                 } label: {
                     ZStack{
                         Color.green
                         Color.white.opacity(0.3)
                         
-                        Text("Buy BTC")
-                            .foregroundColor(.white)
-                            .font(.system(size: 16, weight: .bold))
+                        if let coin = passedCoin{
+                            Text("Buy \(coin.symbol.uppercased())")
+                                .foregroundColor(.white)
+                                .font(.system(size: 16, weight: .bold))
+                        }
                     }
                     .frame(height: 35)
                 }
@@ -476,17 +479,22 @@ extension TradeView{
                 Color.green
                 
                 Button {
-                    if let coin = passedCoin{
-                        vm_homeView.updatePortfolio(type: .sell, coin: coin, amount: Double(vm_tradeview.buyAmount) ?? 0)
-                    }                } label: {
+                    guard let coin = passedCoin,
+                          !vm_tradeview.sellAmount.isEmpty else {return}
+                    
+                        vm_homeView.updatePortfolio(type: .sell, coin: coin, amount: Double(vm_tradeview.sellAmount) ?? 0)
+                } label: {
                     ZStack{
                         Color.red
                         Color.white.opacity(0.3)
 
+                        if let coin = passedCoin{
+                            Text("Sell \(coin.symbol.uppercased())")
+                                .foregroundColor(.white)
+                                .font(.system(size: 16, weight: .bold))
+                        }
+   
                         
-                        Text("Sell BTC")
-                            .foregroundColor(.white)
-                            .font(.system(size: 16, weight: .bold))
                     }
                     .frame(height: 35)
                 }
